@@ -1,0 +1,39 @@
+.derecha {
+    float: right;
+    margin-left: 90px;
+}
+.izquierda {
+    margin-right: 90px;
+}
+#logo {
+    height: 80px;
+}
+/* div.derecha, div.izquierda {
+    border: 1px solid blue;
+} */
+#nosotros{ 
+    /* border: 1px solid green; */
+    text-align: center;
+}
+.desarrollador {
+    /* border: 1px solid gray; */
+    width: 60%;
+    margin: 10px auto;
+    display: flex;
+}
+.desarrollador > img {
+    height: 100px;
+}
+.desarrollador > p {
+    padding: 15px;
+    text-align: justify;
+}
+#contenido {
+    text-align: center;
+}
+.descripcion > p {
+    text-align: justify;
+}
+#bandera{ 
+    height: 75px;
+}
