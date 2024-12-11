@@ -1,12 +1,25 @@
+/* * {
+    margin: 0 !important;
+    padding: 0 !important;
+} */
+
 .derecha {
     float: right;
     margin-left: 90px;
+    margin-right: 0px !important;
+    /* border: 1px solid black; */
 }
 .izquierda {
     margin-right: 90px;
 }
+.derecha > p {
+    border-radius: 20px 0 0 20px;
+}
+.izquierda > p {
+    border-radius: 0 20px 20px 0;
+}
 #logo {
-    height: 80px;
+    height: 110px;
 }
 /* div.derecha, div.izquierda {
     border: 1px solid blue;
@@ -17,9 +30,13 @@
 }
 .desarrollador {
     /* border: 1px solid gray; */
-    width: 60%;
-    margin: 10px auto;
+    width: 70%;
+    margin: 20px auto;
     display: flex;
+    align-items: center;
+}
+.desarrollador > div > p {
+    text-align: justify;
 }
 .desarrollador > img {
     height: 100px;
@@ -30,10 +47,143 @@
 }
 #contenido {
     text-align: center;
+    padding-top: 20px;
 }
 .descripcion > p {
     text-align: justify;
+    background-color: var(--color-fondo);
 }
 #bandera{ 
-    height: 75px;
+    height: 50px;
 }
+#barra, #pie {
+    background: linear-gradient(90deg, #f2ac0e, #fc3421);
+}
+#pie {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+.btn-nav {
+    background-color: var(--color-principal);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border-color: white;
+}
+#descMarketMexa {
+    margin-top: 20px;
+}
+h1 {
+    /* border: 1px solid black; */
+    margin-bottom: 200px;
+}
+/* h1:hover {
+    font-size: 80px;
+    transition: .5s;
+} */
+.descripcion > p {
+    padding: 20px;
+}
+
+ /* Contenedor para organizar las imágenes */
+ .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Estilos para las imágenes */
+.foto {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin: 0px 10px;
+}
+
+/* Animación de vibración */
+.vibration {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+body{
+    background-color: white;
+}
+.box{
+    animation-name: change-color;
+    animation-duration: 10s;
+    animation-timing-function: 1;
+    animation-iteration-count:1;
+    /* animation-delay: 4s; */
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-play-state: running;
+    /* animation: move-box 4s; */
+}
+p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.box:hover{
+    animation-play-state: paused;
+}
+@keyframes change-color{
+    0% {
+        background-color: var(--color-fondo);
+    }
+    /* 25%{
+        background-color: green;
+        width: 200px;
+    }
+    50%{
+        background-color: red;
+        width: 100px;
+    } */
+    100% {
+    background-color:  var(--color-principal);
+    }
+}
+/* @keyframes move-box{
+0%{
+    transform: translateX(0);
+
+}
+100%{
+    transform: translateX(400px);
+} 
+
+}*/
+.move{
+@keyframes move-image{
+0%{translateX(0)}
+100%{translateX(200px)}
+
+}
+}
+
+.titulo1 {
+    padding: 20px 20px;
+}
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+#pie > a {
+    color: var(--color-resaltado) !important;
+}
+
+/* #mision > p {
+    display: none;
+} */
