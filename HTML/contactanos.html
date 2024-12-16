@@ -35,6 +35,12 @@
                 <textarea class="form-control" aria-label="With textarea" rows="10" id="txtMensaje"></textarea>
             </div>
             <p class="text-end">Caracteres restantes: <span id="caracteresRestantes">500</span></p>
+        
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="text" id="telefono" name="telefono">
+            <button type="button" onclick="validarTelefono()">Validar</button>
+            <div id="mensaje"></div>
+
         </div>
 
         <div class="container-fluid" id="redes">
@@ -53,12 +59,9 @@
               </svg> <a id="Flink" href="55 XXXXXXXX">WhatsApp</a>
         </div>
 
-        <form>
-            <label for="telefono">Número de Teléfono:</label>
-            <input type="text" id="telefono" name="telefono">
-            <button type="button" onclick="validarTelefono()">Validar</button>
-            <div id="mensaje"></div>
-          </form>
+        <!-- <form>
+           
+          </form> -->
         
               
 
