@@ -3,6 +3,7 @@ const spanCaracteresRestantes = document.getElementById('caracteresRestantes');
 let caracteresRestantes = spanCaracteresRestantes.textContent;
 const caracteresIniciales = caracteresRestantes;
 const errorTelefono = document.getElementById('errorTelefono');
+const errorMensaje = document.getElementById('errorMensaje');
 
 txtMensaje.addEventListener('input', () => {
     const caracteresUsados = txtMensaje.value.length;
@@ -18,7 +19,7 @@ window.addEventListener('load', event => {
 //Parte del Nombre
 document.getElementById('submitBtn').addEventListener('click', async function() {
     const name = document.getElementById('name').value.trim();
-    const telefono = document.getElementById("telefono").value;
+    const telefono = document.getElementById("telefono");
 
     if (name.length <= 3) {
         document.getElementById('name').classList.add('is-invalid');
@@ -26,16 +27,16 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
         return;
     }
     
-    if (telefono.length !== 10) {
+    if (telefono.value.length !== 10 || telefono.value[0] === "0" || !/^\d+$/.test(telefono.value)) {
       errorTelefono.innerHTML = "Número de teléfono inválido. Debe tener 10 dígitos.";
-    } else if (telefono[0] === "0") {
-      document.getElementById("mensaje").innerHTML = "Número de teléfono inválido. El primer dígito no puede ser 0.";
-      alert("Número de teléfono inválido. El primer dígito no puede ser 0.");
-    } else if (!/^\d+$/.test(telefono)) {
-      document.getElementById("mensaje").innerHTML = "Número de teléfono inválido. Solo se permiten dígitos.";
-      alert("Número de teléfono inválido. Solo se permiten dígitos.");
-    } else {
-      document.getElementById("mensaje").innerHTML = "Número de teléfono válido";
+      errorTelefono.style.display = 'block';
+      telefono.classList.add('is-invalid');
+      return;
+    }
+
+    if(txtMensaje.value.trim().length < 10) {
+        txtMensaje.classList.add('is-invalid');
+        errorMensaje.style.display = 'block';
     }
     return;
 

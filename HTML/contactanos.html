@@ -25,7 +25,7 @@
             </div>
         </div>
     </nav>
-    <main class="container">
+    <main class="container mt-3">
       <h1>Contáctanos</h1>
       <!-- Agregar en este div los inputs y todos los elementos relacionados al formulario -->
       <div id="formulario">
@@ -38,16 +38,13 @@
           <div class="mb-3">
             <label for="telefono" class="form-label">Número de Teléfono:</label>
             <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número de teléfono" required>
-            <div class="invalid-feedback" id="errorTelefono">El nombre debe tener más de 3 caracteres.</div>
-            <!--  -->
-            <button type="button" onclick="validarTelefono()">Validar</button>
-            <div id="mensaje"></div>
+            <div class="invalid-feedback" id="errorTelefono">Número de teléfono inválido. Debe tener 10 dígitos y no iniciar con 0.</div>
           </div>
           <div class="mb-3">
             <label for="txtMensaje">Mensaje:</label>
-            <input class="form-control" type="text" name="txtMensaje" id="txtMensaje" required style="height: 250px;">
+            <textarea class="form-control" type="text" name="txtMensaje" id="txtMensaje" placeholder="Ingresa tu mensaje" style="resize: none;" required rows="10"></textarea>
             <p class="text-end">Caracteres restantes: <span id="caracteresRestantes">500</span></p>
-            <div class="invalid-feedback" id="errorMensaje"></div>
+            <div class="invalid-feedback" id="errorMensaje">Debes de ingresar un mensaje de mínimo 10 caracteres.</div>
           </div>
       
           <button type="button" class="btn btn-warning" id="submitBtn">Enviar</button>
