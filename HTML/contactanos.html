@@ -30,6 +30,17 @@
         </nav>
 
         <div class="container-fluid" id="redes">
+          <div class="container mt-5">
+            <h1>Contáctanos</h1>
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
+                    <div class="invalid-feedback" id="nameError">El nombre debe tener más de 3 caracteres.</div>
+                </div>
+                <button type="button" class="btn btn-warning" id="submitBtn">Enviar</button>
+            </form>
+        </div>
             <h1 class="box">Nuestras redes</h1>
             <!-- Agregar en este div los inputs y todos los elementos relacionados al formulario -->
             <div id="formulario">
