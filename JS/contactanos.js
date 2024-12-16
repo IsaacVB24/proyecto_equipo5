@@ -14,6 +14,7 @@ window.addEventListener('load', event => {
     txtMensaje.maxLength = caracteresRestantes;
 });
 
+<<<<<<< HEAD
 //Parte del Nombre
 document.getElementById('submitBtn').addEventListener('click', async function() {
     const name = document.getElementById('name').value.trim();
@@ -50,3 +51,21 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
         alert('Ocurrió un error inesperado. Intenta más tarde.');
     }
 });
+=======
+function validarTelefono() {
+    const telefono = document.getElementById("telefono").value;
+    
+    if (telefono.length !== 10) {
+      document.getElementById("mensaje").innerHTML = "Número de teléfono inválido. Debe tener 10 dígitos.";
+      alert("Número de teléfono inválido. Debe tener 10 dígitos.");
+    } else if (telefono[0] === "0") {
+      document.getElementById("mensaje").innerHTML = "Número de teléfono inválido. El primer dígito no puede ser 0.";
+      alert("Número de teléfono inválido. El primer dígito no puede ser 0.");
+    } else if (!/^\d+$/.test(telefono)) {
+      document.getElementById("mensaje").innerHTML = "Número de teléfono inválido. Solo se permiten dígitos.";
+      alert("Número de teléfono inválido. Solo se permiten dígitos.");
+    } else {
+      document.getElementById("mensaje").innerHTML = "Número de teléfono válido";
+    }
+  }
+>>>>>>> 2461791a4218d6d83dcb342b26838ba9429a7d16
