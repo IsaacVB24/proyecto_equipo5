@@ -84,3 +84,9 @@ function inicializarEfectos() {
 
 // Inicializar cuando el documento esté listo
 document.addEventListener('DOMContentLoaded', inicializarEfectos);
+
+
+
+
+
+
