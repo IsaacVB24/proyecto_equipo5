@@ -29,17 +29,16 @@
       <h1>Contáctanos</h1>
      
       <div id="formulario">
-        <form id="contactForm" action="https://formspree.io/f/mldeybwy" method="POST">
+        <form id="contactForm">
           <div class="mb-3">
               <label for="name" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
               <div class="invalid-feedback" id="nameError">El nombre debe tener más de 3 caracteres.</div>
           </div>
           <div class="mb-3">
-            <input type="email" name="" id="email"><span class="barra"></span>
-            <label for="">email</label>
-            <button type="submit">validar</button>
-            <p class="warning" id="warning"></p>
+            <label for="email" class="form-label">Correo electrónico:</label>
+            <input type="email" name="emal" id="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+            <div class="invalid-feedback" id="errorCorreo">El email no es valido</div>
           </div>
           <div class="mb-3">
             <label for="telefono" class="form-label">Número de Teléfono:</label>
