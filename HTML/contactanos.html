@@ -26,15 +26,15 @@
       
       <div class="flex-container">
         <div id="formulario">
-          <form id="contactForm" action="https://formspree.io/f/mldeybwy" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/manygoga" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
+                <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required name="nombre" autocomplete="off">
                 <div class="invalid-feedback" id="nameError">El nombre debe tener más de 3 caracteres.</div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico:</label>
-              <input type="email" name="emal" id="email" class="form-control" placeholder="Ingresa tu correo electrónico" required>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Ingresa tu correo electrónico" required>
               <div class="invalid-feedback" id="errorCorreo">El email no es valido</div>
             </div>
             <div class="mb-3">
