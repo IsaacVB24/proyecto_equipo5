@@ -16,8 +16,9 @@
     height: 80px;
 }
 
-#pie > a {
+#pie-contenido > div > a {
     color: var(--color-resaltado) !important;
+    text-decoration: none;
 }
 
 #logo { 
