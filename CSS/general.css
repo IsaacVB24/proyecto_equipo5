@@ -5,8 +5,41 @@
     --color-resaltado: #821131;
 }
 
+p {
+    font-family: "Comic Neue", serif;
+    font-size: 18px;
+}
+h2 {
+    font-family: "Patrick Hand", serif;  
+    font-size: 32px;
+}
+h1 {
+    font-family: 'Roboto Condensed', serif;
+    font-size: 2
+    8px;
+}
+
+.nav-link, .btn-nav > a, a {
+    color: black !important; /* Cambia el color del texto */
+    text-decoration: none; /* Opcional: eliminar el subrayado */
+}
+
+.nav-link:hover, .btn-nav > a:hover {
+    color: var(--color-resaltado) !important; /* Cambia el color al pasar el mouse */
+}
+
+svg {
+    cursor: pointer;
+}
+
+
 #barra, #pie {
+    font-family: "Roboto Flex", serif;
     background: linear-gradient(90deg, #f2ac0e, #fc3421);
+}
+
+a {
+    text-decoration: none !important;
 }
 
 #pie {
