@@ -1,5 +1,6 @@
 // No tocar este documento a menos que sea para estructuras generales, avisar al equipo primero
 
+// Estructura de la barra de navegación que se van a utilizar en todos los HTML
 const estructuraNav = `
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="barra">
       <div class="container-fluid">
@@ -52,21 +53,6 @@ fontLink.rel = 'stylesheet';
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap';
 document.head.appendChild(fontLink);
 
-
-
-
-
-
-// document.body.insertAdjacentHTML('beforeend', `<div id="pie" class="mt-3">
-//       <img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera">
-//       <a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a>
-//       <a href="../HTML/contactanos.html">Contáctanos</a>
-//       <a href="../HTML/listaProductos.html">Productos</a>
-//       <a href="../HTML/suscripcion.html">Suscripciones</a>
-//     </div>`);
-
-    
-
 document.body.insertAdjacentHTML('beforeend', `
   <div class="row mt-3" id="pie">
   <div class="col-md-2"><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
@@ -77,9 +63,7 @@ document.body.insertAdjacentHTML('beforeend', `
     <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
   </div>
 </div>`);
-  
 
-
-    function get(id) {
-        return document.getElementById(id);
-    }
+function get(id) {
+    return document.getElementById(id);
+}
