@@ -39,9 +39,16 @@ svg {
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
+}
+#pie > a, a {
+    color: black !important; /* Cambia el color del texto */
+    text-decoration: none; /* Opcional: eliminar el subrayado */
 }
 
+#pie[id="pie"] a:hover {
+    color: var(--color-resaltado) !important;
+}
 #pie {
     display: flex;
     justify-content: space-around;
@@ -50,8 +57,9 @@ a {
 }
 
 #pie-contenido > div > a {
-    color: var(--color-resaltado) !important;
+    color: var(--color-resaltado);
     text-decoration: none;
+    
 }
 
 #logo { 
