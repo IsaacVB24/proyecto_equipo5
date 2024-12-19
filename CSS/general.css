@@ -4,3 +4,69 @@
     --color-secundario: #C7253E;
     --color-resaltado: #821131;
 }
+
+#barra, #pie {
+    background: linear-gradient(90deg, #f2ac0e, #fc3421);
+}
+
+#pie {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+
+#pie > a {
+    color: var(--color-resaltado) !important;
+}
+
+#logo { 
+    height: 110px;
+}
+
+#bandera { 
+    height: 50px;
+}
+
+.btn-nav {
+    background-color: var(--color-principal);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border-color: white;
+}
+
+@media (max-width: 768px) {
+    #logo {
+        height: 80px;
+    }
+    
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    #formulario, #redes {
+        width: 100%;
+    }
+    
+    #pie {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    #pie > * {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    #logo {
+        height: 60px;
+    }
+    
+    .btn-nav {
+        padding: 3px 8px;
+        font-size: 14px;
+    }
+}
