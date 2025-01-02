@@ -67,3 +67,8 @@ document.body.insertAdjacentHTML('beforeend', `
 function get(id) {
     return document.getElementById(id);
 }
+
+// Debe de existir el div con id "contenido" para que no se muestre este mensaje en las páginas que ya tienen contenido funcional
+window.addEventListener('load', (event) => {
+  if(!get('contenido')) get('barra').insertAdjacentHTML('afterend', '<h1>Página en construcción.</h1>');
+});
