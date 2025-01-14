@@ -1,0 +1,131 @@
+@import url('./general.css');
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card img {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .musica{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+
+  .musica .card{
+    background: linear-gradient(to right, #ffffff, var(--color-fondo))
+
+  }
+
+
+  
+  .deportes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+
+  .deportes .card{
+    background: linear-gradient(to right, #fffdfd, var(--color-fondo))
+    
+  }
+  
+  .tecnologia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    color: #212529;;
+  }
+  .tecnologia .card{
+    background: linear-gradient(to right,  #fffdfd, var(--color-fondo))
+    
+  }
+  .accesorios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    color: #2468ac;;
+  }
+  .accesorios .card{
+    background: linear-gradient(to right, #fffdfd, var(--color-fondo))
+    
+  }
+  .lineaBlanca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  .lineaBlanca .card{
+    background: linear-gradient(to right,#fffdfd, var(--color-fondo))
+    
+  }
+
+  .btn{
+    background-color: var(--color-principal)!important;
+  }
+
+
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      max-width: 100%;
+    }
+  
+    .card img {
+      border-radius: 8px 8px 0 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+
+  .card .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .card .btn:hover {
+    background-color: #0056b3;
+  }
+  
