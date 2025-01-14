@@ -128,4 +128,6 @@
   .card .btn:hover {
     background-color: #0056b3;
   }
-  
+  button.btn.btn-info.w-100.mt-3 {
+    color: white !important;
+  }

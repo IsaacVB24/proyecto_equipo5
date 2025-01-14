@@ -8,7 +8,7 @@ const productosDeportes =
 [
     {
         'name': 'Balon Fútbol Americano',
-        'img': "UYUJcPgZw_3qtyYFhXiagAl9ZXX6dV1mPuKgRJBMNkk/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM5/MTU4OTUxOS9lcy9m/b3RvL2JhbCVDMyVC/M24tZGUtZiVDMyVC/QXRib2wtYW1lcmlj/YW5vLWRlLWN1ZXJv/LXNvYnJlLWZvbmRv/LWJsYW5jby5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9RlNB/",
+        'img': "https://m.media-amazon.com/images/I/61b2hkrQarL.jpg",
         'descripcion': "Ovalado, con una longitud de 29cm y u un peso de 400gr. Cuatro paneles de cuero cocidos con hilo resistente ",
         'precio': 420
       
@@ -85,35 +85,42 @@ const productosAccesorios =
         'descripcion': "Collar Choker de conchitas de mar elaborado con material de alta calidad.",
         'precio': 100
 }
-]
-
-
+];
 
 function mostrarCards (categoria, idDiv){
-
-    
-
     categoria.forEach((producto, index) => {
-        const card = `<div class="card mb-3" id="${idDiv}_${index}" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${producto.img}" height=150px width=70px class="img-fluid rounded-start" alt="${producto.name}">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${producto.name}</h5>
-        <p class="card-text">Descripción: ${producto.descripcion}</p>
-        <p class="card-text">Precio: ${producto.precio}</p>
-      </div>
-    </div>
-  </div>
-</div>`;
-
+        const card = `
+        <div class="musica">
+            <div class="card mb-3" id="${idDiv}_${index}" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.name}">
+                    </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.name}</h5>
+                        <p class="card-text">Descripción: ${producto.descripcion}</p>
+                        <p class="card-text">Precio: $${producto.precio} MXN</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${idDiv}_${index}')">-</button>
+                            <input type="number" id="input_${idDiv}_${index}" value="1" min="1" class="form-control mx-2 text-center" style="width: 60px;">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${idDiv}_${index}')">+</button>
+                        </div>
+                        
+                        <button class="btn btn-success mt-3" onclick="agregarAlCarrito()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>`;
         get(idDiv).insertAdjacentHTML("beforeend", card);
-        
-    
     });
+}
 
+function incrementarCantidad(idInput) {
+    get(idInput).value++;
+}
+function decrementarCantidad(idInput) {
+    if(get(idInput).value > 1) get(idInput).value--
 }
 
 mostrarCards(productosDeportes, "deportes");
@@ -121,5 +128,3 @@ mostrarCards(productosMusica, "musica");
 mostrarCards(productosAccesorios, "accesorios");
 mostrarCards(productosTecnologia, "tecnologia");
 mostrarCards(productosLineaBlanca, "lineaBlanca");
-
-
