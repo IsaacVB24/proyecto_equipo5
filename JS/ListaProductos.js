@@ -70,21 +70,21 @@ const productos =
         'precio': 3199,
         'stock': 17,
         'categoria': 'lineaBlanca'
- },
-{'name': 'Pulsera plata',
-    'img': "https://http2.mlstatic.com/D_NQ_NP_634860-MLU74276578390_022024-O.webp",
-    'descripcion': "Pulsera para hombre de estilo clásico con eslabones de diseño 3 cortos y 1 largo. Ancho: 4.7 mm. Largo: 20 cm. Broche tipo perico para mayor seguridad. Metal: Plata Ley .925 con certificación #216 CRPT. Diseño de doble vista, con una cara diamantada y otra lisa para dos estilos en uno.",
-    'precio': 527,
-    'stock': 134,
-    'categoria': 'accesorios'
-},
-{'name': 'collar concha',
-        'img': "https://http2.mlstatic.com/D_NQ_NP_651771-MLM54804064417_042023-O.webp",
-        'descripcion': "Collar Choker de conchitas de mar elaborado con material de alta calidad.",
-        'precio': 100,
-        'stock': 44,
+    },
+    {'name': 'Pulsera plata',
+        'img': "https://http2.mlstatic.com/D_NQ_NP_634860-MLU74276578390_022024-O.webp",
+        'descripcion': "Pulsera para hombre de estilo clásico con eslabones de diseño 3 cortos y 1 largo. Ancho: 4.7 mm. Largo: 20 cm. Broche tipo perico para mayor seguridad. Metal: Plata Ley .925 con certificación #216 CRPT. Diseño de doble vista, con una cara diamantada y otra lisa para dos estilos en uno.",
+        'precio': 527,
+        'stock': 134,
         'categoria': 'accesorios'
-}
+    },
+    {'name': 'collar concha',
+            'img': "https://http2.mlstatic.com/D_NQ_NP_651771-MLM54804064417_042023-O.webp",
+            'descripcion': "Collar Choker de conchitas de mar elaborado con material de alta calidad.",
+            'precio': 100,
+            'stock': 44,
+            'categoria': 'accesorios'
+    }
 ];
 
 function mostrarCards (categoria){

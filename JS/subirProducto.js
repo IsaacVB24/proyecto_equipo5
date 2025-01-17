@@ -29,4 +29,18 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         alerta.classList.add("alert-personalizada");
         alerta.innerHTML = "¡Producto creado exitosamente!";
     }
+
+    console.log(categoria);
+
+    // Falta añadir producto al arreglo que teníamos
+    const producto = {
+        "nombre": nombre,
+        "descripcion": descripcion,
+        "categoria": categoria,
+        "precio": precio,
+        "stock": stock,
+        "img": null
+    };
+
+    console.log(JSON.stringify(producto));
 });
