@@ -87,8 +87,9 @@ const productos =
     }
 ];
 
-function mostrarCards (categoria){
-    categoria.forEach((producto, index) => {
+function mostrarCards (){
+    console.log(typeof localStorage.getItem('productos'));
+    JSON.parse(localStorage.getItem('productos')).forEach((producto, index) => {
         const card = `
         <div class="musica">
             <div class="card mb-3" id="${producto.categoria}_${index}" style="max-width: 540px;">
@@ -124,4 +125,6 @@ function decrementarCantidad(idInput) {
     if(get(idInput).value > 1) get(idInput).value--;
 }
 
-mostrarCards(productos, "deportes");
+if(!localStorage.getItem('productos')) localStorage.setItem('productos', JSON.stringify(productos));
+
+mostrarCards();
