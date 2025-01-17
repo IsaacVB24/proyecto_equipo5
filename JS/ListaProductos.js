@@ -16,8 +16,8 @@ const productos =
     },
     
     {
-        'name': '"Balón Fútbol Soccer',
-        'img': "https://imgs.search.brave.com/uCNcTJBXmFYA5BsJPXeeaTW_Igs38LsOWgn9OuP_yMs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9kZXBv/cnRlc2d1ZXJyYS5j/b20ubXgvY2RuL3No/b3AvZmlsZXMvU2lu/dGl0dWxvLTMtUmVj/dXBlcmFkby5qcGc_/dj0xNjg4MTUxNTgy/JndpZHRoPTQwMDA",
+        'name': 'Balón Fútbol Soccer',
+        'img': "https://www.mueblesamerica.mx/img/1024/1024/resize/P/U/PUMA03911_x1_1.jpg",
         'descripcion': "Diametro de 22cm. Peso de 450gr. Cubierto de peneles de cuero cosidos",
         'precio': 350,
         'stock': 10,
@@ -33,7 +33,7 @@ const productos =
     },
     {
         'name': 'Album Beatles sergeant pepper',
-        'img': "https://i.scdn.co/image/ab67616d0000b27334ef8f7d06cf2fc2146f420a",
+        'img': "https://shop.capitolmusic.com/cdn/shop/files/sgtpep.png?v=1714072468",
         'descripcion': "Pepper's Lonely Hearts Club Band , álbum de estudio grabado por la banda de rock británica The Beatles, lanzado en 1967. El álbum resultó revolucionario por su tono psicodélico, sus efectos de estudio experimentales y su contribución musical al espíritu de la época contracultural de finales de los años 1960.",
         'precio': 564,
         'stock': 9,
@@ -87,28 +87,29 @@ const productos =
 }
 ];
 
-function mostrarCards (categoria){
-    categoria.forEach((producto, index) => {
+function mostrarCards(productos) {
+    productos.forEach((producto, index) => {
+        const descripcionCorta = producto.descripcion.slice(0, 100) + '...'; // Limitar descripción a 100 caracteres
         const card = `
-        <div class="musica">
-            <div class="card mb-3" id="${producto.categoria}_${index}" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.name}">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${producto.name}</h5>
-                            <p class="card-text">Descripción: ${producto.descripcion}</p>
-                            <p class="card-text">Precio: $${producto.precio} MXN</p>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${producto.categoria}_${index}')">-</button>
-                                <input type="number" id="input_${producto.categoria}_${index}" value="1" min="1" class="form-control mx-2 text-center" style="width: 60px;">
-                                <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${producto.categoria}_${index}')">+</button>
-                            </div>
-                            
-                            <button class="btn btn-success mt-3" onclick="agregarAlCarrito()">Agregar al carrito</button>
+        <div class="card mb-3" id="${producto.categoria}_${index}" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.name}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.name}</h5>
+                        <p class="card-text" id="descripcion_${index}" data-full-text="${producto.descripcion}">
+                            ${descripcionCorta}
+                        </p>
+                        <button class="btn btn-link p-0 ver-mas" onclick="toggleDescripcion(${index})">Ver más</button>
+                        <p class="card-text mt-2"><strong>Precio:</strong> $${producto.precio} MXN</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${producto.categoria}_${index}')">-</button>
+                            <input type="number" id="input_${producto.categoria}_${index}" value="1" min="1" class="form-control mx-2 text-center" style="width: 60px;">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${producto.categoria}_${index}')">+</button>
                         </div>
+                        <button class="btn btn-success mt-3" onclick="agregarAlCarrito()">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -117,11 +118,32 @@ function mostrarCards (categoria){
     });
 }
 
-function incrementarCantidad(idInput) {
-    get(idInput).value++;
-}
-function decrementarCantidad(idInput) {
-    if(get(idInput).value > 1) get(idInput).value--;
+function toggleDescripcion(index) {
+    const descripcion = document.getElementById(`descripcion_${index}`);
+    const fullText = descripcion.dataset.fullText;
+    const shortText = fullText.slice(0, 100) + '...';
+
+    if (descripcion.classList.contains('expanded')) {
+        descripcion.textContent = shortText;
+        descripcion.classList.remove('expanded');
+        descripcion.nextElementSibling.textContent = "Ver más";
+    } else {
+        descripcion.textContent = fullText;
+        descripcion.classList.add('expanded');
+        descripcion.nextElementSibling.textContent = "Ver menos";
+    }
 }
 
-mostrarCards(productos, "deportes");
+
+
+function incrementarCantidad(idInput) {
+    const input = document.getElementById(idInput);
+    input.value = parseInt(input.value) + 1;
+}
+
+function decrementarCantidad(idInput) {
+    const input = document.getElementById(idInput);
+    if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+}
+
+mostrarCards(productos);

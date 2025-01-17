@@ -1,21 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 20px auto;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
+  max-width: 600px;
+  border: none; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.card .row {
+  display: flex;
+  flex-wrap: nowrap; 
+}
+
+.card .col-md-4 {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: auto;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.card .col-md-8 {
+  background: linear-gradient(to bottom right, #fff9c4, #ffcc80, #ffab91); 
+  color: black; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  font-weight: bold; 
+  line-height: 1.5; 
+}
+
+.card .btn-link {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card .btn-link:hover {
+  color: black;
+  text-decoration: underline;
+}
   .card:hover {
     transform: scale(1.03);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
   
   .card img {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    width: auto;
+    height: 300px; 
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
   }
+
   
   .card-title {
     font-size: 1.25rem;
@@ -26,7 +91,40 @@
     font-size: 1rem;
     color: #555;
   }
-  
+
+  .card .card-text {
+    display: block; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3rem;
+    transition: max-height 0.3s ease;
+}
+
+.card .btn-link {
+  color: black; 
+  text-decoration: none; 
+}
+
+.card .btn-link:hover {
+  color: black; 
+  text-decoration: underline;
+}
+.card .card-text.expanded {
+    max-height: none; 
+    overflow: visible; 
+}
+.card .ver-mas:hover {
+  color: #0056b3;
+}
+
+.card .ver-mas {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
   .musica{
     display: flex;
     flex-wrap: wrap;
@@ -39,60 +137,6 @@
   .musica .card{
     background: linear-gradient(to right, #ffffff, var(--color-fondo))
 
-  }
-
-
-  
-  .deportes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    background-color: #f8f9fa;
-    color: #212529;
-  }
-
-  .deportes .card{
-    background: linear-gradient(to right, #fffdfd, var(--color-fondo))
-    
-  }
-  
-  .tecnologia {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    background-color: #f8f9fa;
-    color: #212529;;
-  }
-  .tecnologia .card{
-    background: linear-gradient(to right,  #fffdfd, var(--color-fondo))
-    
-  }
-  .accesorios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    background-color: #f8f9fa;
-    color: #2468ac;;
-  }
-  .accesorios .card{
-    background: linear-gradient(to right, #fffdfd, var(--color-fondo))
-    
-  }
-  .lineaBlanca {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    background-color: #f8f9fa;
-    color: #212529;
-  }
-  
-  .lineaBlanca .card{
-    background: linear-gradient(to right,#fffdfd, var(--color-fondo))
-    
   }
 
   .btn{
@@ -126,6 +170,20 @@
   .card .btn:hover {
     background-color: #0056b3;
   }
-  button.btn.btn-info.w-100.mt-3 {
-    color: white !important;
-  }
+
+  
+  button {
+    color: black !important;
+}
+
+button[aria-expanded="true"] {
+    color: white !important; 
+}
+
+button:hover {
+    color: black !important; 
+}
+
+button[aria-expanded="true"]:hover {
+    color: white !important; 
+}
