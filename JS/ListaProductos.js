@@ -32,7 +32,7 @@ const productos =
         'categoria': 'musica'
     },
     {
-        'name': 'Album Beatles sergeant pepper',
+        'name': 'Album Beatles Sergeant Pepper',
         'img': "https://shop.capitolmusic.com/cdn/shop/files/sgtpep.png?v=1714072468",
         'descripcion': "Pepper's Lonely Hearts Club Band , álbum de estudio grabado por la banda de rock británica The Beatles, lanzado en 1967. El álbum resultó revolucionario por su tono psicodélico, sus efectos de estudio experimentales y su contribución musical al espíritu de la época contracultural de finales de los años 1960.",
         'precio': 564,
@@ -48,7 +48,7 @@ const productos =
         'categoria': 'tecnologia'
     },
     {
-        'name': 'Google Chromecast 4k 4.ª generación 4K 8GB snow con 2GB de memoria RAM',
+        'name': 'Google Chromecast 4k 4.ª generación ',
         'img': "https://http2.mlstatic.com/D_NQ_NP_2X_635602-MLA74782529607_022024-F.webp",
         'descripcion': "Chromecast con Google TV te ofrece el entretenimiento que amas, en hasta 4K HDR.Obtén recomendaciones personales de tus suscripciones, todo en un solo lugar. No tendrás que saltar entre aplicaciones para decidir qué mirar. Mira contenido de Netflix, Amazon Prime Video, Disney+, YouTube, la aplicación Apple TV, Peacock, HBO Max y muchos más.",
         'precio': 1197,
@@ -56,7 +56,7 @@ const productos =
         'categoria': 'tecnologia'
     },
     {
-        'name': 'LICUADORA TAURUS VITRA 10 VEL VIDRIO POTENTE Taurus VITRA10',
+        'name': 'Licuadora Taurus 10 velocidades  ',
         'img': "https://i5.walmartimages.com/asr/0efb65c8-6988-492a-b662-02fb170310ec.1b5e5523d3a8b18f324967ae248f1ac6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
         'descripcion': "Vaso de Vidrio, Libre de BPA de 1,5 litros 500 Watts de potencia 10 Velocidades (6 continuas y 4 pulsos) Tapa de cierre hermético con tapón dosificador Sistema de acople Easy Fitel desgaste de la licuadora FÃCIL DE LAVAR. Sus cuchillas de acero inoxidable son desmontables y el vaso es apto para lavavajillas COMPATIBLE. Se puede utilizar con su jarra o con tarros, botellas para llevar y otros accesorios compatibles",
         'precio': 579,
@@ -64,21 +64,21 @@ const productos =
         'categoria': 'lineaBlanca'
     },
     {
-        'name': 'Freidora de aire T-Fal Más de 4 Porciones 8 L Negro',
+        'name': 'Freidora de Aire T-Fal',
         'img': "https://i5-mx.walmartimages.com/mg/gm/1p/images/product-images/img_large/00001094222890l.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
         'descripcion': "Estas innovadoras freidoras sin aceite te permiten disfrutar de tus alimentos favoritos de manera más saludable. Ya sea que necesites una freidora eléctrica o una freidora de aire grande, tenemos la opción perfecta para ti. Con una freidora de papas o una freidora de papas fritas, obtendrás resultados crujientes y deliciosos sin el exceso de grasa.",
         'precio': 3199,
         'stock': 17,
         'categoria': 'lineaBlanca'
  },
-{'name': 'Pulsera plata',
+{'name': 'Pulsera Plata',
     'img': "https://http2.mlstatic.com/D_NQ_NP_634860-MLU74276578390_022024-O.webp",
     'descripcion': "Pulsera para hombre de estilo clásico con eslabones de diseño 3 cortos y 1 largo. Ancho: 4.7 mm. Largo: 20 cm. Broche tipo perico para mayor seguridad. Metal: Plata Ley .925 con certificación #216 CRPT. Diseño de doble vista, con una cara diamantada y otra lisa para dos estilos en uno.",
     'precio': 527,
     'stock': 134,
     'categoria': 'accesorios'
 },
-{'name': 'collar concha',
+{'name': 'Collar Concha',
         'img': "https://http2.mlstatic.com/D_NQ_NP_651771-MLM54804064417_042023-O.webp",
         'descripcion': "Collar Choker de conchitas de mar elaborado con material de alta calidad.",
         'precio': 100,
