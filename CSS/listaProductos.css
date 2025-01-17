@@ -140,44 +140,36 @@
 
   @media (max-width: 768px) {
     .card {
-      flex-direction: column;
-      max-width: 100%;
+      flex-direction: column; 
+      max-width: 100%; 
+    }
+  
+    .card .row {
+      flex-direction: column;  
     }
   
     .card img {
-      border-radius: 8px 8px 0 0;
-      width: 100%;
-      height: auto;
+      width: 100%; 
+      height: auto; 
+      margin-bottom: 10px; 
+    }
+  
+    .card .col-md-4 {
+      display: block; 
+      text-align: center; 
+    }
+  
+    .card .col-md-8 {
+      background: linear-gradient(to bottom right, #fff9c4, #ffcc80, #ffab91); /* Conserva el gradiente */
+      padding: 20px;
+      text-align: left; 
+    }
+  
+    .card-title {
+      font-size: 1.2rem;
+     }
+  
+    .card-text {
+      font-size: 1rem; 
     }
   }
-  
-
-  .card .btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-  }
-  
-  .card .btn:hover {
-    background-color: #0056b3;
-  }
-
-  
-  button {
-    color: black !important;
-}
-
-button[aria-expanded="true"] {
-    color: white !important; 
-}
-
-button:hover {
-    color: black !important; 
-}
-
-button[aria-expanded="true"]:hover {
-    color: white !important; 
-}
