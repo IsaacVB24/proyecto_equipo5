@@ -19,6 +19,9 @@ const estructuraNav = `
             <li class="nav-item">
                 <a class="nav-link" href="./AcercaDeNosotros.html">Acerca de nosotros</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./subirProducto.html">Añadir producto</a>
+            </li>
           </ul>
           <hr>
           <div>
@@ -64,6 +67,7 @@ document.body.insertAdjacentHTML('beforeend', `
   </div>
 </div>`);
 
+// Función para mandar a llamar a un elemento por su ID
 function get(id) {
     return document.getElementById(id);
 }

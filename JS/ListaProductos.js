@@ -70,6 +70,7 @@ const productos =
         'precio': 3199,
         'stock': 17,
         'categoria': 'lineaBlanca'
+
  },
 {'name': 'Pulsera Plata',
     'img': "https://http2.mlstatic.com/D_NQ_NP_634860-MLU74276578390_022024-O.webp",
@@ -83,13 +84,15 @@ const productos =
         'descripcion': "Collar Choker de conchitas de mar elaborado con material de alta calidad.",
         'precio': 100,
         'stock': 44,
-        'categoria': 'accesorios'
-}
+
+    },
+
 ];
+
 
 function mostrarCards(productos) {
     productos.forEach((producto, index) => {
-        const descripcionCorta = producto.descripcion.slice(0, 100) + '...'; // Limitar descripción a 100 caracteres
+        const descripcionCorta = producto.descripcion.slice(0, 100) + '...'; 
         const card = `
         <div class="card mb-3" id="${producto.categoria}_${index}" style="max-width: 540px;">
             <div class="row g-0">
@@ -136,6 +139,7 @@ function toggleDescripcion(index) {
 
 
 
+
 function incrementarCantidad(idInput) {
     const input = document.getElementById(idInput);
     input.value = parseInt(input.value) + 1;
@@ -147,3 +151,4 @@ function decrementarCantidad(idInput) {
 }
 
 mostrarCards(productos);
+

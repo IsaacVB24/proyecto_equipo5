@@ -1,4 +1,3 @@
-
 const txtMensaje = document.getElementById('txtMensaje');
 const spanCaracteresRestantes = document.getElementById('caracteresRestantes');
 let caracteresRestantes = spanCaracteresRestantes.textContent;
