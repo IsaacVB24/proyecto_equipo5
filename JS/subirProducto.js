@@ -6,8 +6,11 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     const categoria = document.getElementById("productCategory").value.trim();
     const precio = document.getElementById("productPrice").value.trim();
     const stock = document.getElementById("productStock").value.trim();
+    const imagen = document.getElementById("productImagen").value.trim();
 
     const alerta = document.getElementById("alerta");
+
+    const imagenP = document.querySelector('#imagenProducto');
 
     alerta.classList.add("d-none");
     alerta.innerHTML = "";
@@ -30,6 +33,12 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         alerta.innerHTML = "¡Producto creado exitosamente!";
     }
 
+    const imagenPlaceholder = document.getElementById('imagen-placeholder');
+imagenPlaceholder.src = 'https://res.cloudinary.com/marketmexa/image/upload/v1737082184/GridArt_20250116_204607014_fszot5.png';
+
+
+let imagenPr = input_imagen.src;
+
     console.log(categoria);
 
     // Falta añadir producto al arreglo que teníamos
@@ -39,8 +48,9 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         "categoria": categoria,
         "precio": precio,
         "stock": stock,
-        "img": null
+        "img": null,
+        "imagen": imagen
     };
 
     console.log(JSON.stringify(producto));
-});
+}); 
