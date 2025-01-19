@@ -23,6 +23,8 @@ window.addEventListener('load', event => {
 contactForm.addEventListener('submit', (event) => {
     const name = document.getElementById('name').value.trim();
     const telefono = document.getElementById("telefono");
+    const email = document.getElementById('email').value.trim();
+    const txtMensaje = document.getElementById('txtMensaje').value.trim();
     document.getElementById('name').classList.remove('is-invalid');
     document.getElementById('nameError').style.display = 'none';
     email.classList.remove('is-invalid');
@@ -57,4 +59,7 @@ contactForm.addEventListener('submit', (event) => {
         errorMensaje.style.display = 'block';
         event.preventDefault();
     }
+
 });
+
+
