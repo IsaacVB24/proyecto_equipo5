@@ -3,38 +3,38 @@
 // Estructura de la barra de navegación que se van a utilizar en todos los HTML
 const estructuraNav = `
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="barra">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../HTML/AcercaDeNosotros.html"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="./listaProductos.html">Artículos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./mercado.html">Mercado diario</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./AcercaDeNosotros.html">Acerca de nosotros</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./subirProducto.html">Añadir producto</a>
-            </li>
-          </ul>
-          <hr>
-          <div>
-              <button type="button" class="btn-nav"><a href="../HTML/iniciarSesion.html">Iniciar sesión</a></button>
-              <button type="button" class="btn-nav"><a href="../HTML/registro.html">Registrarse</a></button>
-          </div>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./listaProductos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./mercado.html">Mercado diario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./AcercaDeNosotros.html">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./subirProducto.html">Añadir producto</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <button type="button" class="btn-nav"><a href="../HTML/iniciarSesion.html">Iniciar sesión</a></button>
+                <button type="button" class="btn-nav"><a href="../HTML/registro.html">Registrarse</a></button>
+                <a href="./carritoCompras.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart4 ms-3" viewBox="0 0 16 16">
+                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16" style="margin-right: 20px;">
-          <a href="./carritoCompras.html"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/></a>
-        </svg>
-      </div>
-    </nav>
-`;
+    </div>
+</nav>`;
 document.body.insertAdjacentHTML('afterbegin', estructuraNav);
 
 // Preconectar a Google Fonts

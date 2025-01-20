@@ -19,13 +19,24 @@ h1 {
     8px;
 }
 
+.navbar {
+    justify-content: space-between;
+}
+.navbar-collapse {
+    flex-grow: 0; 
+}
+.bi-cart4 {
+    position: relative;
+    top: 0;
+    right: 0;
+}
 .nav-link, .btn-nav > a, a {
-    color: black !important; /* Cambia el color del texto */
-    text-decoration: none; /* Opcional: eliminar el subrayado */
+    color: black !important; 
+    text-decoration: none; 
 }
 
 .nav-link:hover, .btn-nav > a:hover {
-    color: var(--color-resaltado) !important; /* Cambia el color al pasar el mouse */
+    color: var(--color-resaltado) !important; 
 }
 
 svg {
@@ -42,8 +53,8 @@ a {
     text-decoration: none;
 }
 #pie > a, a {
-    color: black !important; /* Cambia el color del texto */
-    text-decoration: none; /* Opcional: eliminar el subrayado */
+    color: black !important;
+    text-decoration: none; 
 }
 
 #pie[id="pie"] a:hover {
@@ -80,6 +91,9 @@ a {
 @media (max-width: 768px) {
     #logo {
         height: 80px;
+        .navbar-toggler {
+            margin-left: auto; 
+        }
     }
     
     .flex-container {
