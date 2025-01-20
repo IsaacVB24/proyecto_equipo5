@@ -20,10 +20,10 @@ h1 {
 }
 
 .navbar {
-    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+    justify-content: space-between;
 }
 .navbar-collapse {
-    flex-grow: 0; /* Evita que la barra de navegación crezca innecesariamente */
+    flex-grow: 0; 
 }
 .bi-cart4 {
     position: relative;
@@ -31,12 +31,12 @@ h1 {
     right: 0;
 }
 .nav-link, .btn-nav > a, a {
-    color: black !important; /* Cambia el color del texto */
-    text-decoration: none; /* Opcional: eliminar el subrayado */
+    color: black !important; 
+    text-decoration: none; 
 }
 
 .nav-link:hover, .btn-nav > a:hover {
-    color: var(--color-resaltado) !important; /* Cambia el color al pasar el mouse */
+    color: var(--color-resaltado) !important; 
 }
 
 svg {
@@ -53,8 +53,8 @@ a {
     text-decoration: none;
 }
 #pie > a, a {
-    color: black !important; /* Cambia el color del texto */
-    text-decoration: none; /* Opcional: eliminar el subrayado */
+    color: black !important;
+    text-decoration: none; 
 }
 
 #pie[id="pie"] a:hover {
@@ -92,7 +92,7 @@ a {
     #logo {
         height: 80px;
         .navbar-toggler {
-            margin-left: auto; /* Mueve el botón al extremo derecho */
+            margin-left: auto; 
         }
     }
     
