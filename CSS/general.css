@@ -19,6 +19,17 @@ h1 {
     8px;
 }
 
+.navbar {
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+}
+.navbar-collapse {
+    flex-grow: 0; /* Evita que la barra de navegación crezca innecesariamente */
+}
+.bi-cart4 {
+    position: relative;
+    top: 0;
+    right: 0;
+}
 .nav-link, .btn-nav > a, a {
     color: black !important; /* Cambia el color del texto */
     text-decoration: none; /* Opcional: eliminar el subrayado */
@@ -80,6 +91,9 @@ a {
 @media (max-width: 768px) {
     #logo {
         height: 80px;
+        .navbar-toggler {
+            margin-left: auto; /* Mueve el botón al extremo derecho */
+        }
     }
     
     .flex-container {
