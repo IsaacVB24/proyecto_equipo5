@@ -1,64 +1,202 @@
-#descMarketMexa {
-    margin-top: 20px;
+:root { 
+    --color-fondo: #f7f4e1; 
+    --color-resaltado: #f57a07; 
+    --color-facebook: #3b5998; /* Facebook */
+    --color-instagram: #c32aa3; /* Instagram */
+    --color-whatsapp: #25d366; /* WhatsApp */
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: 'Arial', sans-serif;
+}
+
+.bg-light-orange {
+    background-color: #f0ae57; 
+}
+
+#formulario {
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #220c0c; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(231, 148, 52, 0.1);
+    width: 100%;
+    max-width: 600px; 
+    height: 100%; 
 }
 
 #redes {
-    border: solid 5px var(--color-resaltado);
-    padding: 20px;
-    box-sizing: border-box;
-    background: linear-gradient()
+    border-radius: 10px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.966); 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%; 
+}
+
+#imagen-y-redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: 100%; 
+    
+}
+
+#logo-container img {
+    width: 100%; 
+    max-height: 387px; 
+    object-fit: cover; 
+}
+
+
+#redes-container {
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.social-text {
+    display: flex; 
+    justify-content: flex-start; 
+    margin-left: 10px; 
+    margin-bottom: 10px; 
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  
+  .social-text {
+    text-align: left; 
+    margin-top: 5px;
+  }
+  
+
+.iconF, .iconI, .iconW {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.iconF:hover, .iconI:hover, .iconW:hover {
+    transform: scale(1.2);
 }
 
 .iconF {
-    height: 25px;
-    width: auto;
-    color: blue;
+    fill: var(--color-facebook);
 }
 
 .iconI {
-    height: 25px;
-    width: auto;
-    color: rgb(231, 52, 142);
+    fill: var(--color-instagram);
 }
 
 .iconW {
-    height: 25px;
-    width: auto;
-    color: rgb(51, 221, 28);
+    fill: var(--color-whatsapp);
 }
 
 
-.container {
-    width: 100%;
-    padding: 15px;
-    margin: 0 auto;
-    box-sizing: border-box;
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
 }
-
 
 .flex-container {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
-#formulario,
-#redes {
-    flex: 1 1 300px; 
-    max-width: 100%; 
-    box-sizing: border-box;
+.flex-container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
     .flex-container {
         flex-direction: column;
-        align-items: stretch; 
-    }
-
-    #formulario,
-    #redes {
-        flex: 1 1 auto; 
-        width: 100%; 
+        gap: 20px;
     }
 }
+
+h1, h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+    
+
+}
+
+button[type="submit"] {
+    background-color: var(--color-resaltado);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e75d00;
+}
+
+/* Formulario */
+.form-label {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: larger;
+}
+
+.form-control:focus {
+    border-color: var(--color-resaltado);
+    box-shadow: 0 0 10px rgba(245, 122, 7, 0.5);
+}
+
+
+.invalid-feedback {
+    font-size: 0.9rem;
+    color: red;
+    margin-top: 5px;
+}
+
+
+#caracteresRestantes {
+    font-weight: bold;
+    color: var(--color-resaltado);
+}
+
