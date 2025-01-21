@@ -17,6 +17,7 @@ txtMensaje.addEventListener('input', () => {
 window.addEventListener('load', event => {
     event.preventDefault();
     txtMensaje.maxLength = caracteresRestantes;
+    contactForm.reset();
 });
 
 //Parte del Nombre
