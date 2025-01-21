@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', event => {
     event.preventDefault();
-    contactForm.reset();
+    // contactForm.reset();
     txtMensaje.maxLength = caracteresRestantes;
 });
 
@@ -91,5 +91,3 @@ contactForm.addEventListener('submit', (event) => {
     }
 
 });
-
-

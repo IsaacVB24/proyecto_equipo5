@@ -6,11 +6,12 @@
     <title>Registro</title>
     <link rel="stylesheet" href="/CSS/registro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
     <div class="left-side"></div> <!-- Es la división entre la imagen y el formulario -->
-
+    
     <div class="container">
         <div class="login_container">
 
@@ -19,7 +20,7 @@
                 <img src="/IMG/LOGO.png" alt="Logo" class="logo-img"> 
                 <span> Registro</span>
             </div>
-
+            <form id="registroForm">
             <!-- Datos para el nombre completo -->
             <div class="input_wrapper"> 
                 <input type="text" id="name" class="input_field" required>
@@ -32,6 +33,13 @@
                 <input type="email" id="email" class="input_field" required>
                 <label for="email" class="label">Correo electrónico</label>
                 <i class="fa-regular fa-envelope icon"></i>
+            </div>
+
+            <!-- Datos para el télefono -->
+            <div class="input_wrapper"> 
+                <input type="text" id="phone" class="input_field" required>
+                <label for="phone" class="label">Teléfono</label>
+                <i class="fa-solid fa-phone icon"></i>
             </div>
 
             <!-- Datos para la contraseña -->
@@ -56,6 +64,7 @@
             <div class="signup">
                 <span>¿Ya tienes una cuenta? <a href="/HTML/iniciarSesion.html"><i>Inicia sesión</i></a></span>
             </div>
+        </form>
 
             <!-- Pie de página /aqui faltan los enlaces en el href -->
             <div class="footer">
@@ -67,6 +76,8 @@
 
         </div>
     </div>
- 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../JS/registro.js"></script>
+    <!-- <script src="../JS/general.js"></script> -->
 </body>
 </html>
