@@ -1,118 +1,73 @@
-console.log("El archivo JavaScript se ha cargado correctamente.");
+// Selección del formulario
+const registroForm = document.getElementById('formulario');
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Alternar visibilidad de contraseña
-    const togglePasswordVisibility = (passwordFieldId) => {
-        const passwordField = document.getElementById(passwordFieldId);
-        const passwordToggle = document.createElement("i");
-        passwordToggle.className = "fa-regular fa-eye icon";
-        passwordToggle.style.cursor = "pointer";
-        passwordField.parentElement.appendChild(passwordToggle);
+// Validación al enviar el formulario
+registroForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario
 
-        passwordToggle.addEventListener("click", () => {
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                passwordToggle.className = "fa-regular fa-eye-slash icon";
-            } else {
-                passwordField.type = "password";
-                passwordToggle.className = "fa-regular fa-eye icon";
-            }
-        });
-    };
+    // Valores de los campos
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefono = document.getElementById('phone').value.trim();
+    const password = document.getElementById('pass').value.trim();
+    const confirmPassword = document.getElementById('confirm-pass').value.trim();
 
-    togglePasswordVisibility("pass");
-    togglePasswordVisibility("confirm-pass");
+    // Limpiar alertas previas
+    clearAlerts();
 
-    // Validación del formulario
-    const form = document.getElementById("registroForm");
-    const alertContainer = document.createElement("div"); // Contenedor de alertas
-    form.prepend(alertContainer);
+    let hasError = false;
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evitar el envío del formulario si hay errores
-        console.log("diste click");
-
-        // Obtener valores de los campos
-        const name = document.getElementById("name").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const pass = document.getElementById("pass").value.trim();
-        const confirmPass = document.getElementById("confirm-pass").value.trim();
-        console.log(name)
-        console.log(confirmPass)
-        console.log(email)
-        console.log(phone)
-        console.log(pass)
-
-
-
-       // Limpiar mensajes de error previos
-        //clearErrors();
-
-        let isValid = true;
-        const errorMessages = []; // Almacenar mensajes de error
-        console.log(errorMessages)
-        // Validar nombre
-        if (name.length < 3) {
-            errorMessages.push("El nombre debe tener al menos 3 caracteres.");
-            isValid = false;
-        }
-
-        // Validar teléfono
-        const phoneRegex = /^\d{10}$/; // Solo 10 dígitos numéricos
-        if (!phoneRegex.test(phone)) {
-            errorMessages.push("El teléfono debe ser un número de 10 dígitos.");
-            isValid = false;
-        }
-
-        // Validar correo electrónico
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Formato de correo estándar
-        if (!emailRegex.test(email)) {
-            errorMessages.push("Por favor ingresa un correo válido.");
-            isValid = false;
-        }
-
-        // Validar contraseña
-        if (pass.length < 6) {
-            errorMessages.push("La contraseña debe tener al menos 6 caracteres.");
-            isValid = false;
-        }
-
-        // Validar confirmación de contraseña
-        if (pass !== confirmPass) {
-            errorMessages.push("Las contraseñas no coinciden.");
-            isValid = false;
-        }
-
-        // Mostrar errores como alertas
-        if (!isValid) {
-            showErrors(errorMessages);
-        } else {
-            alert("¡Registro exitoso!");
-            form.reset(); // Limpiar formulario
-            clearErrors();
-        }
-    });
-
-    //Función para mostrar errores como alertas de Bootstrap
-   function showErrors(messages) {
-      alertContainer.innerHTML = ""; // Limpiar contenedor de alertas
-
-        // Crear un contenedor de alerta de Bootstrap
-        const alert = document.createElement("div");
-        alert.className = "alert alert-danger";
-        alert.role = "alert";
-
-        // Concatenar los mensajes de error en una cadena
-        const errorMessages = messages.join("<br>"); // Unir los mensajes con un salto de línea entre ellos
-
-        // Establecer el contenido de la alerta con los mensajes de error
-        alert.innerHTML = errorMessages;
-
-        // Agregar la alerta al contenedor de alertas
-        alertContainer.appendChild(alert);
+    // Validación del nombre
+    if (name.length < 2) {
+        showAlert('El nombre debe tener al menos 2 caracteres.', 'danger');
+        document.getElementById('name').classList.add('is-invalid');
+        hasError = true;
     }
 
+    // Validación del correo electrónico
+    const regexEmail = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
+    if (!regexEmail.test(email)) {
+        showAlert('El correo electrónico no es válido.', 'danger');
+        document.getElementById('email').classList.add('is-invalid');
+        hasError = true;
+    }
 
+    // Validación del teléfono
+    if (telefono.length !== 10 || !/^\d+$/.test(telefono)) {
+        showAlert('El número de teléfono debe tener 10 dígitos y contener solo números.', 'danger');
+        document.getElementById('phone').classList.add('is-invalid');
+        hasError = true;
+    }
+
+    // Validación de contraseñas
+    if (password !== confirmPassword) {
+        showAlert('Las contraseñas no coinciden.', 'danger');
+        document.getElementById('pass').classList.add('is-invalid');
+        document.getElementById('confirm-pass').classList.add('is-invalid');
+        hasError = true;
+    }
+
+    // Si no hay errores, muestra un mensaje de éxito
+    if (!hasError) {
+        showAlert('Registro completado con éxito.', 'success');
+    }
 });
 
+// Función para mostrar alertas de Bootstrap
+function showAlert(message, type) {
+    const alertContainer = document.getElementById('alertContainer');
+    const alertHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    alertContainer.innerHTML += alertHTML;
+}
+
+// Función para limpiar las alertas y estilos inválidos
+function clearAlerts() {
+    const alertContainer = document.getElementById('alertContainer');
+    alertContainer.innerHTML = '';
+    document.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+}
