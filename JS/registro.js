@@ -52,6 +52,11 @@ registroForm.addEventListener('submit', (event) => {
     // Si no hay errores, muestra un mensaje de éxito
     if (!hasError) {
         showAlert('Registro completado con éxito.', 'success');
+        document.getElementById('name').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('pass').value = "";
+         document.getElementById('confirm-pass').value = "";
     }else{
         return;
     }
@@ -65,6 +70,13 @@ registroForm.addEventListener('submit', (event) => {
 
       // Almacenar objeto del formulario en el Local Storage
       localStorage.setItem("archivoCuenta", JSON.stringify(archivoCuenta));
+
+      setTimeout(() => {
+        const alert = document.querySelector('.alert-success');
+        if (alert) {
+            alert.remove();
+        }
+    }, 2000);
 
 });
 
