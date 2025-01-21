@@ -62,7 +62,7 @@ document.body.insertAdjacentHTML('beforeend', `
   <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
     <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
     <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
-    <div class="col col-md-3"><a href="../HTML/listaProductos.html">Terminos y condiciones</a></div>
+    <div class="col col-md-3"><a href="../HTML/listaProductos.html">Términos y condiciones</a></div>
     <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
   </div>
 </div>`);
