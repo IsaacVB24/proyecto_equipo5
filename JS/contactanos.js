@@ -21,6 +21,7 @@ window.addEventListener('load', event => {
 =======
 >>>>>>> 6ffcb33f4d49bcd708e543d1d56b969373167b53
     txtMensaje.maxLength = caracteresRestantes;
+    contactForm.reset();
 });
 
 //Parte del Nombre
