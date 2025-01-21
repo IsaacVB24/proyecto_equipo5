@@ -6,7 +6,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     const categoria = document.getElementById("productCategory").value.trim();
     const precio = document.getElementById("productPrice").value.trim();
     const stock = document.getElementById("productStock").value.trim();
-    const imagen = document.getElementById("productImagen").value.trim();
+    const imagen = document.getElementById("imagenProducto").value;
 
     const alerta = document.getElementById("alerta");
 
@@ -33,14 +33,6 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         alerta.innerHTML = "¡Producto creado exitosamente!";
     }
 
-    const imagenPlaceholder = document.getElementById('imagen-placeholder');
-imagenPlaceholder.src = 'https://res.cloudinary.com/marketmexa/image/upload/v1737082184/GridArt_20250116_204607014_fszot5.png';
-
-
-let imagenPr = input_imagen.src;
-
-    console.log(categoria);
-
     // Falta añadir producto al arreglo que teníamos
     const producto = {
         "nombre": nombre,
@@ -51,6 +43,4 @@ let imagenPr = input_imagen.src;
         "img": null,
         "imagen": imagen
     };
-
-    console.log(JSON.stringify(producto));
 }); 
