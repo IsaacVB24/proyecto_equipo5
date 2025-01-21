@@ -54,8 +54,20 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         "imagen": imagen
     };
 
+<<<<<<< HEAD
+    console.log(JSON.stringify(producto));
+
+    console.log(JSON.stringify(producto));
+
+    JSON.parse(localStorage.getItem(productos))
+
+    productos.push(nuevoProducto);
+
+    localStorage.setItem(productos, JSON.stringfy(productos));
+=======
     // 1. Hacer JSON.parse(localStorage...)
     // 2. .push(producto)
     // 3. Guardar en localStorage.setItem('', JSON.stringify(...))
     
+>>>>>>> 0a2ad2feeca79cdbbbc5386d354822534dee1a67
 });

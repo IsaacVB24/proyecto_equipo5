@@ -1,9 +1,9 @@
 :root { 
     --color-fondo: #f7f4e1; 
     --color-resaltado: #f57a07; 
-    --color-facebook: #3b5998; /* Facebook */
-    --color-instagram: #c32aa3; /* Instagram */
-    --color-whatsapp: #25d366; /* WhatsApp */
+    --color-facebook: #3b5998; /* Fb */
+    --color-instagram: #c32aa3; /* Ig */
+    --color-whatsapp: #25d366; /* Whats */
 }
 
 body {
