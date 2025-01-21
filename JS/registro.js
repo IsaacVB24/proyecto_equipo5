@@ -1,4 +1,4 @@
-// Selección del formulario
+/*// Selección del formulario
 const registroForm = document.getElementById('registroForm');
 
 registroForm.addEventListener('submit', (event) => {
@@ -74,4 +74,4 @@ function clearAlerts() {
     const alertContainer = document.getElementById('alertContainer');
     alertContainer.innerHTML = '';
     document.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
-}
+}*/
