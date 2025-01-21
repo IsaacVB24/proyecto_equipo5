@@ -6,51 +6,68 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     const categoria = document.getElementById("productCategory").value.trim();
     const precio = document.getElementById("productPrice").value.trim();
     const stock = document.getElementById("productStock").value.trim();
-    const imagen = document.getElementById("productImagen").value.trim();
-
+    const imagenInput = document.getElementById("productImagen");
     const alerta = document.getElementById("alerta");
-
-    const imagenP = document.querySelector('#imagenProducto');
 
     alerta.classList.add("d-none");
     alerta.innerHTML = "";
 
     let errores = [];
+    let imagen = null;
 
     if (nombre === "") errores.push("El nombre del producto es obligatorio.");
     if (descripcion === "") errores.push("La descripción no puede estar vacía.");
     if (categoria === "Selecciona") errores.push("Debes seleccionar una categoría.");
-    if (precio === "" || isNaN(precio) || precio <= 0) errores.push("El precio debe ser un número mayor a 0.");
-    if (stock === "" || isNaN(stock) || stock < 0) errores.push("El stock debe ser un número mayor o igual a 0.");
+    if (!precio || isNaN(precio) || parseFloat(precio) <= 0) errores.push("El precio debe ser un número mayor a 0.");
+    if (!stock || isNaN(stock) || parseInt(stock, 10) < 0) errores.push("El stock debe ser un número mayor o igual a 0.");
 
-    if (errores.length > 0) {
-        alerta.classList.remove("d-none", "alert-personalizada");
-        alerta.classList.add("alert-personalizada");
-        alerta.innerHTML = errores.join("<br>");
+    if (imagenInput && imagenInput.files.length > 0) {
+        const file = imagenInput.files[0];
+        imagen = URL.createObjectURL(file);
     } else {
-        alerta.classList.remove("d-none", "alert-personalizada");
-        alerta.classList.add("alert-personalizada");
-        alerta.innerHTML = "¡Producto creado exitosamente!";
+        errores.push("Debe seleccionarse una imagen para el producto.");
     }
 
-    const imagenPlaceholder = document.getElementById('imagen-placeholder');
-imagenPlaceholder.src = 'https://res.cloudinary.com/marketmexa/image/upload/v1737082184/GridArt_20250116_204607014_fszot5.png';
-
-
-let imagenPr = input_imagen.src;
-
-    console.log(categoria);
-
-    // Falta añadir producto al arreglo que teníamos
+    if (errores.length > 0) {
+        alerta.classList.remove("d-none", "alert-success");
+        alerta.classList.add("alert-error");
+        alerta.innerHTML = errores.join("<br>");
+    } else {
+        alerta.classList.remove("d-none", "alert-error");
+        alerta.classList.add("alert-success");
+        alerta.innerHTML = "¡Producto creado exitosamente!";
+        document.getElementById("productName").value = "";
+        document.getElementById("productDescription").value = "";
+        document.getElementById("productCategory").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productStock").value = "";
+        document.getElementById("productImagen").value = "";
+        document.getElementById("productImagen").value="";              
+    }
+  // Falta añadir producto al arreglo que teníamos
     const producto = {
         "nombre": nombre,
         "descripcion": descripcion,
         "categoria": categoria,
-        "precio": precio,
-        "stock": stock,
-        "img": null,
+        "precio": parseFloat(precio),
+        "stock": parseInt(stock, 10),
         "imagen": imagen
     };
 
+<<<<<<< HEAD
     console.log(JSON.stringify(producto));
-}); 
+
+    console.log(JSON.stringify(producto));
+
+    JSON.parse(localStorage.getItem(productos))
+
+    productos.push(nuevoProducto);
+
+    localStorage.setItem(productos, JSON.stringfy(productos));
+=======
+    // 1. Hacer JSON.parse(localStorage...)
+    // 2. .push(producto)
+    // 3. Guardar en localStorage.setItem('', JSON.stringify(...))
+    
+>>>>>>> 0a2ad2feeca79cdbbbc5386d354822534dee1a67
+});
