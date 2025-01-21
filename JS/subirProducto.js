@@ -55,4 +55,12 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     };
 
     console.log(JSON.stringify(producto));
+
+    console.log(JSON.stringify(producto));
+
+    JSON.parse(localStorage.getItem(productos))
+
+    productos.push(nuevoProducto);
+
+    localStorage.setItem(productos, JSON.stringfy(productos));
 });
