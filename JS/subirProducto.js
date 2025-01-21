@@ -6,14 +6,14 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     const categoria = document.getElementById("productCategory").value.trim();
     const precio = document.getElementById("productPrice").value.trim();
     const stock = document.getElementById("productStock").value.trim();
-    const imagen = document.getElementById("imagenProducto").value.trim();
-
+    const imagenInput = document.getElementById("productImagen");
     const alerta = document.getElementById("alerta");
 
     alerta.classList.add("d-none");
     alerta.innerHTML = "";
 
     let errores = [];
+    let imagen = null;
 
     if (nombre === "") errores.push("El nombre del producto es obligatorio.");
     if (descripcion === "") errores.push("La descripción no puede estar vacía.");
@@ -36,17 +36,15 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         alerta.classList.remove("d-none", "alert-error");
         alerta.classList.add("alert-success");
         alerta.innerHTML = "¡Producto creado exitosamente!";
+        document.getElementById("productName").value = "";
+        document.getElementById("productDescription").value = "";
+        document.getElementById("productCategory").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productStock").value = "";
+        document.getElementById("productImagen").value = "";
+        document.getElementById("productImagen").value="";              
     }
-
-    const imagenPlaceholder = document.getElementById('imagen-placeholder');
-imagenPlaceholder.src = 'https://res.cloudinary.com/marketmexa/image/upload/v1737082184/GridArt_20250116_204607014_fszot5.png';
-
-
-let imagenPr = input_imagen.src;
-
-    console.log(categoria);
-
-    // Falta añadir producto al arreglo que teníamos
+  // Falta añadir producto al arreglo que teníamos
     const producto = {
         "nombre": nombre,
         "descripcion": descripcion,
@@ -57,4 +55,4 @@ let imagenPr = input_imagen.src;
     };
 
     console.log(JSON.stringify(producto));
-}); 
+});
