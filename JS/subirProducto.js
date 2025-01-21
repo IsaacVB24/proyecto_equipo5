@@ -54,5 +54,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         "imagen": imagen
     };
 
-    console.log(JSON.stringify(producto));
+    // 1. Hacer JSON.parse(localStorage...)
+    // 2. .push(producto)
+    // 3. Guardar en localStorage.setItem('', JSON.stringify(...))
 });
