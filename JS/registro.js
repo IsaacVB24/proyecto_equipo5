@@ -1,11 +1,13 @@
 // Selección del formulario
 const registroForm = document.getElementById('formulario');
+const archivoCuenta = JSON.parse(localStorage.getItem("archivoCuenta")) || [];
+
 
 // Validación al enviar el formulario
 registroForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevenir el envío del formulario
 
-    // Valores de los campos
+        // Valores de los campos
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const telefono = document.getElementById('phone').value.trim();
@@ -33,8 +35,8 @@ registroForm.addEventListener('submit', (event) => {
     }
 
     // Validación del teléfono
-    if (telefono.length !== 10 || !/^\d+$/.test(telefono)) {
-        showAlert('El número de teléfono debe tener 10 dígitos y contener solo números.', 'danger');
+    if (telefono.length !== 10 || !/^\d+$/.test(telefono) ||telefono=="0000000000") {
+        showAlert('El número de teléfono debe tener 10 dígitos, contener solo números y no debe de ser 0000000000.', 'danger');
         document.getElementById('phone').classList.add('is-invalid');
         hasError = true;
     }
@@ -55,13 +57,27 @@ registroForm.addEventListener('submit', (event) => {
         document.getElementById('phone').value = "";
         document.getElementById('pass').value = "";
          document.getElementById('confirm-pass').value = "";
+    }else{
+        return;
     }
-    setTimeout(() => {
+    const formData = {
+        username: name,
+        password: password,
+        phone: telefono,
+        email: email
+      };
+      archivoCuenta.push(formData);
+
+      // Almacenar objeto del formulario en el Local Storage
+      localStorage.setItem("archivoCuenta", JSON.stringify(archivoCuenta));
+
+      setTimeout(() => {
         const alert = document.querySelector('.alert-success');
         if (alert) {
             alert.remove();
         }
     }, 2000);
+
 });
 
 // Función para mostrar alertas de Bootstrap
@@ -82,3 +98,5 @@ function clearAlerts() {
     alertContainer.innerHTML = '';
     document.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
 }
+
+
