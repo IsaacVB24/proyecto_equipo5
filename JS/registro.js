@@ -50,7 +50,18 @@ registroForm.addEventListener('submit', (event) => {
     // Si no hay errores, muestra un mensaje de éxito
     if (!hasError) {
         showAlert('Registro completado con éxito.', 'success');
+        document.getElementById('name').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('pass').value = "";
+         document.getElementById('confirm-pass').value = "";
     }
+    setTimeout(() => {
+        const alert = document.querySelector('.alert-success');
+        if (alert) {
+            alert.remove();
+        }
+    }, 2000);
 });
 
 // Función para mostrar alertas de Bootstrap
