@@ -146,4 +146,5 @@ function decrementarCantidad(idInput) {
     if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
 }
 
-mostrarCards(productos);
+localStorage.setItem('productos', JSON.stringify(productos));
+mostrarCards(JSON.parse(localStorage.getItem('productos')));
