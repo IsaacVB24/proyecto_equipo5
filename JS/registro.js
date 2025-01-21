@@ -1,7 +1,10 @@
-/*// Selección del formulario
-const registroForm = document.getElementById('registroForm');
+// Selección del formulario
+const registroForm = document.getElementById('formulario');
 
+// Validación al enviar el formulario
 registroForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario
+
     // Valores de los campos
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -38,22 +41,15 @@ registroForm.addEventListener('submit', (event) => {
 
     // Validación de contraseñas
     if (password !== confirmPassword) {
-        showAlert('Las contraseñas no coinciden. Asegúrate de que ambas contraseñas sean iguales.', 'danger');
+        showAlert('Las contraseñas no coinciden.', 'danger');
         document.getElementById('pass').classList.add('is-invalid');
         document.getElementById('confirm-pass').classList.add('is-invalid');
         hasError = true;
     }
 
-    // Validación de longitud de la contraseña
-    if (password.length < 6) {
-        showAlert('La contraseña debe tener al menos 6 caracteres.', 'danger');
-        document.getElementById('pass').classList.add('is-invalid');
-        hasError = true;
-    }
-
-    // Prevenir el envío si hay errores
-    if (hasError) {
-        event.preventDefault();
+    // Si no hay errores, muestra un mensaje de éxito
+    if (!hasError) {
+        showAlert('Registro completado con éxito.', 'success');
     }
 });
 
@@ -74,4 +70,5 @@ function clearAlerts() {
     const alertContainer = document.getElementById('alertContainer');
     alertContainer.innerHTML = '';
     document.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
-}*/
+}
+
