@@ -54,7 +54,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
     const producto = {
         "name": nombre,
         "descripcion": descripcion,
-        "categoria": categoria.textContent.toLowerCase(),
+        "categoria": categoria.value,
         "precio": parseFloat(precio),
         "stock": parseInt(stock, 10),
         "img": get('imagenProducto').src    // Aquí hace falta añadir el url creado por cloudinary
