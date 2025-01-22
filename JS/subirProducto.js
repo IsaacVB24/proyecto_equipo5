@@ -3,7 +3,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
 
     const nombre = document.getElementById("productName").value.trim();
     const descripcion = document.getElementById("productDescription").value.trim();
-    const categoria = document.getElementById("productCategory").value.trim();
+    const categoria = get('productCategory').options[get('productCategory').selectedIndex];
     const precio = document.getElementById("productPrice").value.trim();
     const stock = document.getElementById("productStock").value.trim();
     const imagenInput = document.getElementById("productImagen");
@@ -17,50 +17,51 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
 
     if (nombre === "") errores.push("El nombre del producto es obligatorio.");
     if (descripcion === "") errores.push("La descripción no puede estar vacía.");
-    if (categoria === "Selecciona") errores.push("Debes seleccionar una categoría.");
+    if (get('productCategory').options[get('productCategory').selectedIndex].value == 0) errores.push("Debes de seleccionar una categoría.");
     if (!precio || isNaN(precio) || parseFloat(precio) <= 0) errores.push("El precio debe ser un número mayor a 0.");
     if (!stock || isNaN(stock) || parseInt(stock, 10) < 0) errores.push("El stock debe ser un número mayor o igual a 0.");
 
+    if (!get('imagenProducto').src) {
+        errores.push("Debe de seleccionarse una imagen para el producto.");
+    }
+    /*
+    Esto es lo que estaba en el if anterior pero me marca errores
     if (imagenInput && imagenInput.files.length > 0) {
         const file = imagenInput.files[0];
         imagen = URL.createObjectURL(file);
     } else {
         errores.push("Debe seleccionarse una imagen para el producto.");
     }
+    */
 
     if (errores.length > 0) {
-        alerta.classList.remove("d-none", "alert-success");
-        alerta.classList.add("alert-error");
+        alerta.classList.remove("d-none", "alert-personalizada");
+        alerta.classList.add("alert-personalizada");
         alerta.innerHTML = errores.join("<br>");
+        return;
     } else {
-        alerta.classList.remove("d-none", "alert-error");
-        alerta.classList.add("alert-success");
+        alerta.classList.remove("d-none", "alert-personalizada");
+        alerta.classList.add("alert-personalizada");
         alerta.innerHTML = "¡Producto creado exitosamente!";
         document.getElementById("productName").value = "";
         document.getElementById("productDescription").value = "";
         document.getElementById("productCategory").value = "";
         document.getElementById("productPrice").value = "";
         document.getElementById("productStock").value = "";
-        document.getElementById("productImagen").value = "";
-        document.getElementById("productImagen").value="";              
+        get('imagenProducto').src = "";
     }
-  // Falta añadir producto al arreglo que teníamos
+    
     const producto = {
-        "nombre": nombre,
+        "name": nombre,
         "descripcion": descripcion,
-        "categoria": categoria,
+        "categoria": categoria.textContent.toLowerCase(),
         "precio": parseFloat(precio),
         "stock": parseInt(stock, 10),
-        "imagen": imagen
+        "img": get('imagenProducto').src    // Aquí hace falta añadir el url creado por cloudinary
     };
+    const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
-    console.log(JSON.stringify(producto));
+    productos.push(producto);
 
-    console.log(JSON.stringify(producto));
-
-    JSON.parse(localStorage.getItem(productos))
-
-    productos.push(nuevoProducto);
-
-    localStorage.setItem(productos, JSON.stringfy(productos));
+    localStorage.setItem('productos', JSON.stringify(productos));
 });

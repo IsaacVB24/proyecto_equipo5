@@ -4,7 +4,7 @@ const divAccesorios = get("accesorios");
 const divTecnologia = get("tecnologia");
 const divLineaBlanca = get("lineaBlanca");
 
-const productos = 
+const productos = JSON.parse(localStorage.getItem('productos')) ||
 [
     {
         'name': 'Balon Fútbol Americano',
@@ -86,6 +86,8 @@ const productos =
         'categoria': 'accesorios'
 }
 ];
+console.log(productos);
+console.log(typeof productos);
 
 function mostrarCards(productos) {
     productos.forEach((producto, index) => {
@@ -105,8 +107,9 @@ function mostrarCards(productos) {
                         <button class="btn btn-link p-0 ver-mas" onclick="toggleDescripcion(${index})">Ver más</button>
                         <p class="card-text mt-2"><strong>Precio:</strong> $${producto.precio} MXN</p>
                         <div class="d-flex align-items-center">
+                            <p class="mt-3" style="margin-right:30px">Cantidad: </p>
                             <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${producto.categoria}_${index}')">-</button>
-                            <input type="number" id="input_${producto.categoria}_${index}" value="1" min="1" class="form-control mx-2 text-center" style="width: 60px;">
+                            <p id="input_${producto.categoria}_${index}" class="pt-3 mx-2 text-center" style="width: 60px;">1</p>
                             <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${producto.categoria}_${index}')">+</button>
                         </div>
                         <button class="btn btn-success mt-3" onclick="agregarAlCarrito()">Agregar al carrito</button>
@@ -138,12 +141,12 @@ function toggleDescripcion(index) {
 
 function incrementarCantidad(idInput) {
     const input = document.getElementById(idInput);
-    input.value = parseInt(input.value) + 1;
+    input.textContent = parseInt(input.textContent) + 1;
 }
 
 function decrementarCantidad(idInput) {
     const input = document.getElementById(idInput);
-    if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+    if (parseInt(input.textContent) > 1) input.textContent = parseInt(input.textContent) - 1;
 }
 
 localStorage.setItem('productos', JSON.stringify(productos));

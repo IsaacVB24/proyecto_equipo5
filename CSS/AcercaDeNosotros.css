@@ -188,3 +188,7 @@ a {
 /* #mision > p {
     display: none;
 } */
+
+.desarrollador > div > p {
+    text-align: justify;
+}
