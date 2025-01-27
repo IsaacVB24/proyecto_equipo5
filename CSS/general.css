@@ -38,6 +38,18 @@ h1 {
 .nav-link:hover, .btn-nav > a:hover {
     color: var(--color-resaltado) !important; 
 }
+.user-info {
+    margin-right: 1.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+
+.user-info span {
+    font-size: 1rem; 
+    color: white; 
+    margin-left: 0.5rem; 
+}
 
 svg {
     cursor: pointer;
@@ -79,6 +91,13 @@ a {
 
 #bandera { 
     height: 50px;
+}
+
+#usericon {
+    color:#0e0d0d;
+    width: 30px;
+    height: 30px;
+
 }
 
 .btn-nav {

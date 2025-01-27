@@ -11,22 +11,22 @@ const estructuraNav = `
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./listaProductos.html">Productos</a>
+                    <a class="nav-link" href="../index.html">Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./mercado.html">Mercado diario</a>
+                    <a class="nav-link" href="../HTML/mercado.html">Mercado diario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./AcercaDeNosotros.html">Acerca de nosotros</a>
+                    <a class="nav-link" href="../HTML/AcercaDeNosotros.html">Acerca de nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./subirProducto.html">Añadir producto</a>
+                    <a class="nav-link" href="../HTML/subirProducto.html">Añadir producto</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
-                <button type="button" class="btn-nav"><a href="../HTML/iniciarSesion.html">Iniciar sesión</a></button>
-                <button type="button" class="btn-nav"><a href="../HTML/registro.html">Registrarse</a></button>
-                <a href="./carritoCompras.html">
+                <button type="button" class="btn-nav m-2"><a href="../HTML/iniciarSesion.html">Iniciar sesión</a></button>
+                <button type="button" class="btn-nav m-2"><a href="../HTML/registro.html">Registrarse</a></button>
+                <a href="../HTML/carritoCompras.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart4 ms-3" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                     </svg>
@@ -62,17 +62,35 @@ document.body.insertAdjacentHTML('beforeend', `
   <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
     <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
     <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
-    <div class="col col-md-3"><a href="../HTML/listaProductos.html">Términos y condiciones</a></div>
+    <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
     <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
   </div>
 </div>`);
 
-// Función para mandar a llamar a un elemento por su ID
-function get(id) {
-    return document.getElementById(id);
-}
+// Actualizar la barra de navegación al iniciar sesión
+function renderNavBar() {
+    const navContainer = document.querySelector('.navbar .d-flex');
+    const usuarios = JSON.parse(localStorage.getItem('archivoCuenta')) || [];
+    const usuarioLogueado = usuarios.find((usuario) => usuario.isLoggedIn);
 
-// Debe de existir el div con id "contenido" para que no se muestre este mensaje en las páginas que ya tienen contenido funcional
-window.addEventListener('load', (event) => {
-  if(!get('contenido')) get('barra').insertAdjacentHTML('afterend', '<h1>Página en construcción.</h1>');
-});
+    if (usuarioLogueado) {
+        // Eliminar botones de inicio de sesión y registro
+        navContainer.querySelectorAll('button').forEach((btn) => btn.remove());
+
+        // Añadir ícono y nombre del usuario antes del carrito
+        navContainer.insertAdjacentHTML(
+            'afterbegin',
+            `<div class="d-flex align-items-center user-info me-3">
+                <svg id="usericon"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg>
+
+                <span class="text-light">${usuarioLogueado.username}</span>
+            </div>`
+        );
+    }
+}
+// Ejecutar la función al cargar la página
+window.addEventListener('load', renderNavBar);
+
