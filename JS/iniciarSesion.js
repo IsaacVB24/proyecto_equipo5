@@ -42,3 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+// Referencia al formulario
+const loginForm = document.getElementById('formulario');
+
+// Manejar el evento de envío del formulario
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que se recargue la página al enviar el formulario
+
+    // Obtener los valores de correo y contraseña
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('pass').value;
+
+    // Crear un objeto para almacenar los datos del usuario
+    const usuario = { email, password };
+
+    // Guardar en localStorage
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+
+    // Mostrar mensaje de éxito
+    alert('Datos guardados en localStorage correctamente.');
+    loginForm.reset();
+});
+
+
+
+
