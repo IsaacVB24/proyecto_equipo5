@@ -90,6 +90,10 @@ function renderNavBar() {
         );
     }
 }
+
+function get(id) {
+    return document.getElementById(id);
+}
+
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
-

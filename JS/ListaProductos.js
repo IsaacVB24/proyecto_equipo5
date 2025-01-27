@@ -86,8 +86,6 @@ const productos = JSON.parse(localStorage.getItem('productos')) ||
         'categoria': 'accesorios'
 }
 ];
-console.log(productos);
-console.log(typeof productos);
 
 function mostrarCards(productos) {
     productos.forEach((producto, index) => {
@@ -136,8 +134,6 @@ function toggleDescripcion(index) {
         descripcion.nextElementSibling.textContent = "Ver menos";
     }
 }
-
-
 
 function incrementarCantidad(idInput) {
     const input = document.getElementById(idInput);
