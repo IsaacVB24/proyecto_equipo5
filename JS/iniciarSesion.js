@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+      
         // Validar formato de correo electrónico
         const emailRegex = /^[^\s@]+@[^\s@]+$/;
         if (!emailRegex.test(email)) {

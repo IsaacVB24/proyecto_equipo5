@@ -67,12 +67,30 @@ document.body.insertAdjacentHTML('beforeend', `
   </div>
 </div>`);
 
-// Función para mandar a llamar a un elemento por su ID
-function get(id) {
-    return document.getElementById(id);
-}
+// Actualizar la barra de navegación al iniciar sesión
+function renderNavBar() {
+    const navContainer = document.querySelector('.navbar .d-flex');
+    const usuarios = JSON.parse(localStorage.getItem('archivoCuenta')) || [];
+    const usuarioLogueado = usuarios.find((usuario) => usuario.isLoggedIn);
 
-// Debe de existir el div con id "contenido" para que no se muestre este mensaje en las páginas que ya tienen contenido funcional
-window.addEventListener('load', (event) => {
-  if(!get('contenido')) get('barra').insertAdjacentHTML('afterend', '<h1>Página en construcción.</h1>');
-});
+    if (usuarioLogueado) {
+        // Eliminar botones de inicio de sesión y registro
+        navContainer.querySelectorAll('button').forEach((btn) => btn.remove());
+
+        // Añadir ícono y nombre del usuario antes del carrito
+        navContainer.insertAdjacentHTML(
+            'afterbegin',
+            `<div class="d-flex align-items-center user-info me-3">
+                <svg id="usericon"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg>
+
+                <span class="text-light">${usuarioLogueado.username}</span>
+            </div>`
+        );
+    }
+}
+// Ejecutar la función al cargar la página
+window.addEventListener('load', renderNavBar);
+
