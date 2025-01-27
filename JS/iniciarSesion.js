@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-      
         // Validar formato de correo electrónico
         const emailRegex = /^[^\s@]+@[^\s@]+$/;
         if (!emailRegex.test(email)) {
@@ -69,6 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Actualizar estado del usuario logueado
+        usuarios.forEach((usuario) => {
+            usuario.isLoggedIn = usuario.email === email;
+        });
+        localStorage.setItem("archivoCuenta", JSON.stringify(usuarios));
+
         // Almacenar correo si "Recuérdame" está seleccionado
         if (rememberMe.checked) {
             localStorage.setItem("email", email);
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Mostrar bienvenida y redirigir
         showAlert(`¡Bienvenido, ${usuarioEncontrado.username}!`, "success");
         setTimeout(() => {
-            window.location.href = "/HTML/carritoCompras.html";
+            window.location.href = "/HTML/listaProductos.html";
         }, 2000);
     });
 
