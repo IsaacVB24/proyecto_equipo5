@@ -1,46 +1,54 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+    
+    const loginForm = document.getElementById("formulario");
 
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevenir el envío del formulario
 
-    // Icono que  da la opción de ver o no la contraseña
-    const passwordField = document.getElementById("pass");
-    const passwordToggle = document.createElement("i");
-    passwordToggle.className = "fa-regular fa-eye icon";
-    passwordToggle.style.cursor = "pointer";
-    passwordField.parentElement.appendChild(passwordToggle);
+        // Obtener los valores del formulario
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("pass").value.trim();
 
-    passwordToggle.addEventListener("click", () => {
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            passwordToggle.className = "fa-regular fa-eye-slash icon";
+        // Validar los campos que falten de llenado
+        if (!email || !password) {
+            showAlert("Por favor, completa todos los campos antes de iniciar sesión.", "danger");
+            return;
+        }
+
+        // Aqui se utiliza el JSON para poder identificar los datos dentro de nuestro LOCALSTORAGE
+        const usuarios = JSON.parse(localStorage.getItem("archivoCuenta")) || [];
+        const usuarioEncontrado = usuarios.find(
+            (usuario) => usuario.email === email && usuario.password === password
+        );
+
+        if (usuarioEncontrado) {
+            showAlert(`¡Bienvenido, ${usuarioEncontrado.username}!`, "success");
+
+        // Redirigir al dashboard después de 2 segundos o podemos ajustarlo a menos o mas
+            setTimeout(() => {
+                window.location.href = "/HTML/carritoCompras.html"; 
+            }, 2000);
         } else {
-            passwordField.type = "password";
-            passwordToggle.className = "fa-regular fa-eye icon";
+            showAlert("Correo o contraseña inválidos. Inténtalo nuevamente.", "danger");
         }
     });
 
-    // Validar que el formulario esté completo
-    const submitButton = document.querySelector(".input-submit");
-    submitButton.addEventListener("click", (e) => {
-        const username = document.getElementById("user").value.trim();
-        const password = passwordField.value.trim();
+    // Lo que se utiliza para mostrar las alertas
+    function showAlert(message, type) {
+        const alertContainer = document.getElementById("alertContainer");
+        const alertHTML = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        alertContainer.innerHTML = alertHTML;
 
-        if (!username || !password) {
-            e.preventDefault();
-            alert("Por favor, completa todos los campos antes de iniciar sesión.");
-        }
-    });
-
-    // Enfoque de bordes
-    const inputs = document.querySelectorAll(".input_field");
-    inputs.forEach((input) => {
-        input.addEventListener("focus", () => {
-            input.style.borderColor = "var(--second-color)";
-        });
-        input.addEventListener("blur", () => {
-            input.style.borderColor = "var(--primary-color)";
-        });
-    });
+        // Limpiar la alerta después de 3 segundos, si no modificar.
+        setTimeout(() => {
+            alertContainer.innerHTML = "";
+        }, 3000);
+    }
 });
 
 
