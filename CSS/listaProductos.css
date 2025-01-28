@@ -134,7 +134,10 @@
   }
 
   .btn{
-    background-color: var(--color-principal)!important;
+    background-color: var(--color-principal) !important;
+  }
+  .btn-info {
+    color: white !important;
   }
 
 

@@ -145,5 +145,30 @@ function decrementarCantidad(idInput) {
     if (parseInt(input.textContent) > 1) input.textContent = parseInt(input.textContent) - 1;
 }
 
+// Se agregan manualmente los productos al localStorage
 localStorage.setItem('productos', JSON.stringify(productos));
-mostrarCards(JSON.parse(localStorage.getItem('productos')));
+
+function mostrarDatos() {
+    const datos = JSON.parse(localStorage.getItem('productos'));
+    return new Promise((resolve, reject) => {
+        if(datos.length == 0 || datos == null) {
+            reject(new Error("No hay datos por mostrar"));
+        } else {
+            resolve(datos);
+        }
+    });
+}
+
+async function fetchingDatos() {
+    try {
+        const respuesta = await mostrarDatos();
+        mostrarCards(respuesta);
+    } catch (err) {
+        get('contenido').innerHTML = `
+            <h1  class="text-center">Lista de Productos</h1>
+            <h2 class="text-center" style="text-decoration:underline;">Podrás adquirir productos próximamente.</h2>
+        `;
+    }
+}
+
+fetchingDatos();
