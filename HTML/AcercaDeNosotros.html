@@ -8,92 +8,142 @@
     <link rel="stylesheet" href="../CSS/AcercaDeNosotros.css">
     <link rel="stylesheet" href="../CSS/general.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
 <body>
     <div class="container-fluid" id="contenido">
         <h1 class="box">Acerca de nosotros</h1>
+        <!-- Misión, Visión y Valores -->
         <div id="descMarketMexa">
-            <div id="mision" class="descripcion derecha">
+            <!-- Misión -->
+            <div id="mision" class="descripcion card derecha">
+                <div class="bg"></div>
+                <div class="blob"></div>
                 <h3>Misión</h3>
                 <p>Ofrecer a nuestros usuarios la experiencia óptima de compra personalizada, que les permita obtener
                     productos exclusivos y ofertas renovadas de acuerdo con sus intereses y necesidades de forma
                     satisfactoria, flexible y segmentada.</p>
             </div>
-            <div id="vision" class="descripcion izquierda">
+        
+            <!-- Visión -->
+            <div id="vision" class="descripcion card izquierda">
+                <div class="bg"></div>
+                <div class="blob"></div>
                 <h3>Visión</h3>
                 <p>Ser una de las mejores y pioneras plataformas de e-commerce que combine la personalización, simpleza
                     y flexibilidad de suscripciones, logrando conectar a los usuarios con los productos que cumplen
                     todas sus expectativas y necesidades.</p>
             </div>
-            <div id="valores" class="descripcion derecha">
+        
+            <!-- Valores -->
+            <div id="valores" class="descripcion card derecha">
+                <div class="bg"></div>
+                <div class="blob"></div>
                 <h3>Valores</h3>
-                <p>Confianza: Periódicamente obtendrás los productos del área de tu interés.
-                    Accesibilidad: Los productos que te gustan en la puerta de tu casa.
+                <p>Confianza: Periódicamente obtendrás los productos del área de tu interés.<br>
+                    Accesibilidad: Los productos que te gustan en la puerta de tu casa.<br>
                     Diversidad e Inclusión: Creamos un espacio donde todos los usuarios se sientan respetados e
-                    integrados.
+                    integrados.<br>
                     Calidad y excelencia: Nos distinguimos por traer los mejores productos en función de tu economía.</p>
             </div>
         </div>
-        <div id="nosotros">
+        <!-- Nuevo contenedor solo para el título -->
+        <div id="titulo-equipo">
             <h1 class="titulo1">Equipo de desarrollo</h1>
-            <div id="emiliano" class="desarrollador">
-                <img src="../IMG/Emiliano.png" alt="fotoEmiliano" class="foto">
-                <div>
-                    <h3>Emiliano Cornejo</h3>
-                    <p>
-                        Tengo 24 años y soy originario de la Ciudad de México. Soy parte del equipo 5 en este proyecto e-commerce. Recientemente, completé un bootcamp en Generation México enfocado en Desarrollo Java Full Stack, donde consolidé habilidades técnicas y metodologías ágiles. Durante este proyecto, me desempeñé como desarrollador contribuyendo en diferentes áreas del desarrollo del sistema y mejorando mis habilidades técnicas y colaborativas.
-                    </p>
+        </div>
+        
+        <!-- Contenedor de los desarrolladores -->
+        <div id="nosotros">
+            <!-- Tarjetas de desarrolladores -->
+        </div>
+        
+            <!-- Emiliano -->
+            <div id="emiliano" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/Emiliano.png" alt="fotoEmiliano" class="foto">
+                    <div class="info">
+                        <h3>Emiliano Cornejo</h3>
+                        <p>
+                            Soy Desarrollador Java Full Stack, tengo 24 años y soy originario de la Ciudad de México. Soy parte del equipo 5 en este proyecto e-commerce. Recientemente, completé un bootcamp en Generation México enfocado en Desarrollo Java Full Stack, donde consolidé habilidades técnicas y metodologías ágiles. Durante este proyecto, me desempeñé como desarrollador contribuyendo en diferentes áreas del desarrollo del sistema y mejorando mis habilidades técnicas y colaborativas.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div id="carmen" class="desarrollador">
-                <div>
-                    <h3>Laura del Carmen García Escobar</h3>
-                    <p>
-                        Soy Desarrolladora Java Full Stack con pasión por el diseño y la atención al detalle. Me especializo en crear soluciones eficientes y trabajar en proyectos colaborativos. Durante este proyecto, he aplicado mis conocimientos en diseño y desarrollo, contribuyendo a la creación de una interfaz amigable y funcional. Siempre busco aprender nuevas habilidades y enfrentar nuevos retos tecnológicos.
-                    </p>
-                </div>
-                <img src="../IMG/Laura.png" alt="fotoCarmen" class="foto">
-            </div>
-            <div id="brenda" class="desarrollador">
-                <img src="../IMG/Brenda.png" alt="fotoBrenda" class="foto">
-                <div>
-                    <h3>Brenda Rodríguez</h3>
-                    <p>
-                        Soy Desarrolladora Java Full Stack con formación en Química de Alimentos. Mi creatividad y pasión por la innovación me han llevado a expandir mis habilidades hacia el desarrollo digital. En este proyecto desempeñé roles clave como Scrum Master, Product Owner y desarrolladora, colaborando con el equipo en la planeación, ejecución y solución de problemas. Me interesa seguir creciendo tanto en áreas técnicas como en habilidades de liderazgo.
-                    </p>
+
+            <!-- Laura -->
+            <div id="carmen" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/Laura.png" alt="fotoCarmen" class="foto">
+                    <div class="info">
+                        <h3>Laura del Carmen García Escobar</h3>
+                        <p>
+                            Soy Desarrolladora Java Full Stack con pasión por el diseño y la atención al detalle. Me especializo en crear soluciones eficientes y trabajar en proyectos colaborativos. Durante este proyecto, he aplicado mis conocimientos en diseño y desarrollo, contribuyendo a la creación de una interfaz amigable y funcional. Siempre busco aprender nuevas habilidades y enfrentar nuevos retos tecnológicos.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div id="lenny" class="desarrollador">
-                <div>
-                    <h3>Lenny Innel Cocom Pedraza</h3>
-                    <p>
-                        Soy Desarrolladora Full Stack Jr. con experiencia en el sector financiero, específicamente en planificación e implementación de estrategias. También he trabajado brindando soporte técnico y análisis de incidencias relacionadas con software, bases de datos y consultas SQL. En este proyecto, me enfoqué en la estructura técnica del sistema, aplicando mis habilidades en análisis y resolución de problemas para mejorar el rendimiento y funcionalidad del sistema.
-                    </p>
-                </div>
-                <img src="../IMG/Lenny.png" alt="fotoLenny" class="foto">
-            </div>
-            <div id="rogelio" class="desarrollador">
-                <img src="../IMG/Rogelio.png" alt="fotoRogelio" class="foto">
-                <div>
-                    <h3>Rogelio Acosta Villeda</h3>
-                    <p>
-                        Soy Desarrollador Full Stack con un fuerte interés en la ciberseguridad, desarrollo web y análisis de datos. Actualmente, formo parte de Generation México, donde he fortalecido mis habilidades en tecnologías emergentes. En este proyecto, participé activamente en el desarrollo técnico y en la implementación de soluciones innovadoras. Mi objetivo profesional es especializarme en ciberseguridad y explorar nuevas áreas dentro del desarrollo tecnológico.
-                    </p>
+
+            <!-- Brenda -->
+            <div id="brenda" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/Brenda.png" alt="fotoBrenda" class="foto">
+                    <div class="info">
+                        <h3>Brenda Rodríguez</h3>
+                        <p>
+                            Soy Desarrolladora Java Full Stack con formación en Química de Alimentos. Mi creatividad y pasión por la innovación me han llevado a expandir mis habilidades hacia el desarrollo digital. En este proyecto desempeñé roles clave como Scrum Master, Product Owner y desarrolladora, colaborando con el equipo en la planeación, ejecución y solución de problemas. Me interesa seguir creciendo tanto en áreas técnicas como en habilidades de liderazgo.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div id="isaac" class="desarrollador">
-                <div>
-                    <h3>Isaac Victoria Benavides</h3>
-                    <p>
-                        Soy Ingeniero en Sistemas Computacionales con interés en el desarrollo web Full Stack. En este proyecto, desempeñé roles clave como Scrum Master, Product Owner y miembro del equipo de desarrollo, aplicando metodologías ágiles y técnicas de programación. Me interesa seguir explorando el desarrollo colaborativo y la creación de soluciones tecnológicas que aporten valor y mejoren la experiencia del usuario en los sistemas.
-                    </p>
+
+            <!-- Lenny -->
+            <div id="lenny" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/Lenny.png" alt="fotoLenny" class="foto">
+                    <div class="info">
+                        <h3>Lenny Innel Cocom Pedraza</h3>
+                        <p>
+                            Soy Desarrolladora Full Stack Jr. con experiencia en el sector financiero, específicamente en planificación e implementación de estrategias. También he trabajado brindando soporte técnico y análisis de incidencias relacionadas con software, bases de datos y consultas SQL. En este proyecto, me enfoqué en la estructura técnica del sistema, aplicando mis habilidades en análisis y resolución de problemas para mejorar el rendimiento y funcionalidad del sistema.
+                        </p>
+                    </div>
                 </div>
-                <img src="../IMG/isaac.jpeg" alt="fotoIsaac" class="foto">
+            </div>
+
+            <!-- Rogelio -->
+            <div id="rogelio" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/Rogelio.png" alt="fotoRogelio" class="foto">
+                    <div class="info">
+                        <h3>Rogelio Acosta Villeda</h3>
+                        <p>
+                            Soy Desarrollador Java Full Stack con un fuerte interés en la ciberseguridad, desarrollo web y análisis de datos. Actualmente, formo parte de Generation México, donde he fortalecido mis habilidades en tecnologías emergentes. En este proyecto, participé activamente en el desarrollo técnico y en la implementación de soluciones innovadoras. Mi objetivo profesional es especializarme en ciberseguridad y explorar nuevas áreas dentro del desarrollo tecnológico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Isaac -->
+            <div id="isaac" class="desarrollador card">
+                <span></span>
+                <div class="content">
+                    <img src="../IMG/isaac.jpeg" alt="fotoIsaac" class="foto">
+                    <div class="info">
+                        <h3>Isaac Victoria Benavides</h3>
+                        <p>
+                            Soy desarrollador Java Full Stack e Ingeniero en Sistemas Computacionales con interés en el desarrollo web. En este proyecto, desempeñé roles clave como Scrum Master, Product Owner y miembro del equipo de desarrollo, aplicando metodologías ágiles y técnicas de programación. Me interesa seguir explorando el desarrollo colaborativo y la creación de soluciones tecnológicas que aporten valor y mejoren la experiencia del usuario en los sistemas.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../JS/AcercaDeNosotros.js"></script>
