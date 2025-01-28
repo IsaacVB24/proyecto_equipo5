@@ -338,3 +338,34 @@ h1, h2, h5 {
       rgba(var(--color-card), 0.9) 100%
     );
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+      flex-direction: column; /* Cambiar de fila a columna */
+      padding: 20px; /* Reducir el padding en móvil */
+  }
+
+  .hero-section img {
+      display: none; /* Ocultar la imagen */
+  }
+
+  .hero-text {
+      max-width: 100%; /* Asegurar que ocupe todo el ancho */
+      text-align: center; /* Centrar el texto */
+      padding: 10px; /* Espaciado interno para evitar que el texto se pegue al borde */
+  }
+
+  .hero-title {
+      font-size: 2.5rem; /* Ajustar el tamaño de la fuente para pantallas pequeñas */
+  }
+
+  .hero-subtitle {
+      font-size: 1.2rem; /* Ajustar el subtítulo */
+      margin-bottom: 20px; /* Espacio para mejor visualización */
+  }
+
+  .btn-hero {
+      width: 100%; /* Botón ocupa todo el ancho */
+      padding: 12px; /* Botón más grande y accesible */
+  }
+}
