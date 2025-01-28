@@ -22,8 +22,14 @@ window.addEventListener('load', event => {
 
 //Parte del Nombre
 contactForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evitar el envío predeterminado del formulario
+
     const name = document.getElementById('name').value.trim();
     const telefono = document.getElementById("telefono");
+    const mensaje = txtMensaje.value.trim();
+    let isValid = true;
+
+    // Resetear mensajes de error y clases de validación
     document.getElementById('name').classList.remove('is-invalid');
     document.getElementById('nameError').style.display = 'none';
     email.classList.remove('is-invalid');
@@ -33,29 +39,36 @@ contactForm.addEventListener('submit', (event) => {
     txtMensaje.classList.remove('is-invalid');
     errorMensaje.style.display = 'none';
 
-    if (name.length <= 3) {
+    // Validaciones
+    if (name.length <= 2) {
         document.getElementById('name').classList.add('is-invalid');
         document.getElementById('nameError').style.display = 'block';
-        event.preventDefault();
-    }
-    
-    let regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-    if(!regexEmail.test(email.value)){
-        email.classList.add('is-invalid');
-        errorCorreo.style.display = 'block';
-        event.preventDefault();
-    }
-    
-    if (telefono.value.length !== 10 || telefono.value[0] === "0" || !/^\d+$/.test(telefono.value)) {
-      errorTelefono.innerHTML = "Número de teléfono inválido. Debe tener 10 dígitos.";
-      errorTelefono.style.display = 'block';
-      telefono.classList.add('is-invalid');
-      event.preventDefault();
+        isValid = false;
     }
 
-    if(txtMensaje.value.trim().length < 10) {
+    let regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+    if (!regexEmail.test(email.value)) {
+        email.classList.add('is-invalid');
+        errorCorreo.style.display = 'block';
+        isValid = false;
+    }
+
+    if (telefono.value.length !== 10 || telefono.value[0] === "0" || !/^\d+$/.test(telefono.value)) {
+        errorTelefono.innerHTML = "Número de teléfono inválido. Debe tener 10 dígitos.";
+        errorTelefono.style.display = 'block';
+        telefono.classList.add('is-invalid');
+        isValid = false;
+    }
+
+    if (mensaje.length < 10) {
         txtMensaje.classList.add('is-invalid');
         errorMensaje.style.display = 'block';
-        event.preventDefault();
+        isValid = false;
+    }
+
+    // Si todo es válido, mostrar mensaje y redirigir
+    if (isValid) {
+        alert("Formulario enviado con éxito");
+        window.location.href = 'index.html';
     }
 });

@@ -1,55 +1,155 @@
-#contenido {
-display: flex;
-justify-content: space-between;
-gap: 2rem;
-}
-#formulario {
-flex: 2;
-}
-#imagen {
-flex: 1;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border: 1px solid #ddd;
-padding: 1rem;
-border-radius: 5px;
-}
-#preview {
-width: 100%;
-max-width: 200px;
-height: auto;
-border: 1px solid #ddd;
-border-radius: 5px;
-margin-top: 1rem;
+:root {
+    --color-principal: #FABC3F; /* Amarillo principal */
+    --color-fondo: #E85C0D; /* Fondo naranja */
+    --color-secundario: #C7253E; /* Rojo secundario */
+    --color-resaltado: #821131; /* Vino oscuro */
 }
 
-@media (max-width: 768px) {
+body {
+    background-color: var(--color-principal);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
 #contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#formulario {
+    flex: 2;
+    padding: 30px;
+    background-color: var(--color-fondo);
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+#formulario h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#formulario label {
+    font-weight: bold;
+    font-size: medium;
+    color: #fff;
+}
+
+#formulario .form-control {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-principal);
+    margin-top: 10px;
+    font-size: large;
+    background-color: #fff;
+    color: var(--color-secundario);
+}
+
+#formulario .form-control:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 10px rgba(250, 188, 63, 0.5);
+}
+
+#formulario button[type="submit"] {
+    background-color: var(--color-principal);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-fondo);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#formulario button[type="submit"]:hover {
+    background-color: var(--color-resaltado);
+    color: #fff;
+}
+
+#imagen {
+    flex: 1;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-principal);
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--color-secundario);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
-#formulario, #imagen {
-    flex: none;
-    width: 100%;
-}}
-.alert-personalizada {
-    background-color: #ffe4b5;
-    color: #d2691e; 
+
+#imagen h2 {
+    font-size: 1.5rem;
     font-weight: bold;
-    border: 2px solid #d2691e; 
-    border-radius: 10px; 
-    animation: fadeIn 0.5s ease-in-out; 
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+#preview {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border: 1px solid var(--color-principal);
+    border-radius: 10px;
+    margin-top: 1rem;
+    background-color: #fff;
+}
+
+#imagen button {
+    background-color: var(--color-principal);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-fondo);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#imagen button:hover {
+    background-color: var(--color-resaltado);
+    color: #fff;
+}
+
+.alert-personalizada {
+    background-color: var(--color-principal);
+    color: var(--color-resaltado);
+    font-weight: bold;
+    border: 2px solid var(--color-secundario);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+    padding: 10px;
 }
 
 @keyframes fadeIn {
     from {
-    opacity: 0;
-    transform: scale(0.9);
+        opacity: 0;
+        transform: scale(0.9);
     }
     to {
-    opacity: 1;
-    transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    #contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+    #formulario, #imagen {
+        flex: none;
+        width: 100%;
     }
 }

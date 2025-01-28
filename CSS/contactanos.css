@@ -63,6 +63,24 @@ body {
     flex-direction: column;
 }
 
+.social-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-item svg {
+    margin-right: 5px; 
+    flex-shrink: 0; 
+}
 
 .social-text {
     display: flex; 
