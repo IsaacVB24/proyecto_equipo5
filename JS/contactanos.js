@@ -69,6 +69,6 @@ contactForm.addEventListener('submit', (event) => {
     // Si todo es válido, mostrar mensaje y redirigir
     if (isValid) {
         alert("Formulario enviado con éxito");
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     }
 });
