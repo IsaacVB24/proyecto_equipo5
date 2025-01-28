@@ -4,7 +4,7 @@
 const estructuraNav = `
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="barra">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../HTML/index.html"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
+        <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
