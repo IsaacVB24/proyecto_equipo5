@@ -95,5 +95,12 @@ function get(id) {
     return document.getElementById(id);
 }
 
+function verificarContainer() {
+    if (!document.querySelector('.container')) {
+        document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:20px;'>Página en construcción</h1>";
+    }
+}
+
+
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
