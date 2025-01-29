@@ -57,15 +57,16 @@ fontLink.href = 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0
 document.head.appendChild(fontLink);
 
 document.body.insertAdjacentHTML('beforeend', `
-  <div class="row mt-3" id="pie">
-  <div class="col-md-2"><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
-  <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
-    <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
-    <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
-    <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
-    <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
-  </div>
-</div>`);
+    <div class="row" id="pie">
+        <div class="col-md-2"><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
+        <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
+            <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
+            <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
+            <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
+            <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
+        </div>
+    </div>
+`);
 
 // Actualizar la barra de navegación al iniciar sesión
 function renderNavBar() {
