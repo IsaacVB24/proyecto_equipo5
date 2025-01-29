@@ -56,18 +56,6 @@ fontLink.rel = 'stylesheet';
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap';
 document.head.appendChild(fontLink);
 
-document.body.insertAdjacentHTML('beforeend', `
-    <div class="footer" id="pie">
-        <div><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
-        <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
-            <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
-            <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
-            <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
-            <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
-        </div>
-    </div>
-`);
-
 // Actualizar la barra de navegación al iniciar sesión
 function renderNavBar() {
     const navContainer = document.querySelector('.navbar .d-flex');
@@ -97,11 +85,24 @@ function get(id) {
 }
 
 function verificarContainer() {
-    if (!document.querySelector('.container')) {
-        document.body.innerHTML = "<h1 style='text-align:center; color:red; margin-top:20px;'>Página en construcción</h1>";
+    if (!document.querySelector('#contenido')) {
+        document.body.insertAdjacentHTML('beforeend', `<h1>PÁGINA EN CONSTRUCCIÓN</h1>`);
     }
 }
 
+verificarContainer();
+
+document.body.insertAdjacentHTML('beforeend', `
+    <div class="footer" id="pie">
+        <div><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
+        <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
+            <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
+            <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
+            <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
+            <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
+        </div>
+    </div>
+`);
 
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
