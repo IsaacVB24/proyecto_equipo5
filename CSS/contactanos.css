@@ -218,3 +218,6 @@ button[type="submit"]:hover {
     color: var(--color-resaltado);
 }
 
+#contactForm {
+    background-color: #f0ae57 !important;
+}
