@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Mostrar bienvenida y redirigir
-        showAlert(`¡Bienvenido, ${usuarioEncontrado.username}!`, "success");
+        showAlert(`¡Bienvenido/a, ${usuarioEncontrado.username}!`, "success");
         localStorage.setItem('logueado', 'true');
         setTimeout(() => {
             window.location.href = "/HTML/listaProductos.html";
