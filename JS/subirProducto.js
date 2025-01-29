@@ -32,19 +32,8 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         "img": imagenUrl
       };
 
-      const productos = JSON.parse(localStorage.getItem('productos')) || [];
-      productos.push(producto);
-      localStorage.setItem('productos', JSON.stringify(productos));
+      
 
-      alerta.classList.remove("d-none", "alert-personalizada");
-      alerta.classList.add("alert-personalizada");
-      alerta.innerHTML = "¡Producto creado exitosamente!";
-      document.getElementById("productName").value = "";
-      document.getElementById("productDescription").value = "";
-      document.getElementById("productCategory").value = "";
-      document.getElementById("productPrice").value = "";
-      document.getElementById("productStock").value = "";
-      get('imagenProducto').src = "";
     }
   });
 
@@ -88,7 +77,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
         "categoria": categoria.value,
         "precio": parseFloat(precio),
         "stock": parseInt(stock, 10),
-        "img": imagen.src    // Aquí hace falta añadir el url creado por cloudinary
+        "img": imagen.src    
     };
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
@@ -96,6 +85,5 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
 
     localStorage.setItem('productos', JSON.stringify(productos));
     imagenUrl = "";
-    document.getElementById("imagenProducto").src = "";
-  
+    document.getElementById("imagenProducto").src = ""; 
 });
