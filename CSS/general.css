@@ -157,3 +157,8 @@ a {
     background-attachment: fixed;
     background-size: cover;
 }
+
+#barra, #pie {
+    font-size: large;
+    font-weight: 500;
+}
