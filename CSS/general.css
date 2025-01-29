@@ -162,3 +162,7 @@ a {
     font-size: large;
     font-weight: 500;
 }
+
+.nav-item {
+    margin: 0 10px;
+}
