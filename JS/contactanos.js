@@ -54,7 +54,7 @@ contactForm.addEventListener('submit', (event) => {
     }
 
     if (telefono.value.length !== 10 || telefono.value[0] === "0" || !/^\d+$/.test(telefono.value)) {
-        errorTelefono.innerHTML = "Número de teléfono inválido. Debe tener 10 dígitos.";
+        errorTelefono.innerHTML = "Número de teléfono inválido. Debe de tener 10 dígitos.";
         errorTelefono.style.display = 'block';
         telefono.classList.add('is-invalid');
         isValid = false;
