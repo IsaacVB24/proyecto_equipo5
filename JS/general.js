@@ -20,7 +20,7 @@ const estructuraNav = `
                     <a class="nav-link" href="../HTML/AcercaDeNosotros.html">Acerca de nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../HTML/subirProducto.html">Añadir producto</a>
+                    <a class="nav-link" href="../HTML/subirProducto.html" style="display: ${localStorage.getItem('logueado') == 'true' ? 'block' : 'none'};" id="agregarProductos">Añadir producto</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
