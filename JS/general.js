@@ -93,7 +93,7 @@ function verificarContainer() {
 verificarContainer();
 
 document.body.insertAdjacentHTML('beforeend', `
-    <div class="footer" id="pie">
+    <footer class="footer mt-auto py-3" id="pie">
         <div><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
         <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
             <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
@@ -101,8 +101,18 @@ document.body.insertAdjacentHTML('beforeend', `
             <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
             <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
         </div>
-    </div>
+    </footer>
 `);
+
+function inyectarFavicon() {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/x-icon';
+    link.href = '/IMG/LOGO.png';
+    document.head.appendChild(link);
+}
+
+inyectarFavicon();
 
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
