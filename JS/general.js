@@ -114,5 +114,8 @@ function inyectarFavicon() {
 
 inyectarFavicon();
 
+// Añadir la clase con estilos en general.css
+document.body.classList.add('fondoDegradado');
+
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
