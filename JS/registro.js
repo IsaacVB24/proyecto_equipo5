@@ -18,6 +18,16 @@ registroForm.addEventListener("submit", (event) => {
 
     let hasError = false;
 
+    // Validar si ya existe una cuenta con el correo ingresado
+    archivoCuenta.forEach(datoCuenta => {
+        if(datoCuenta.email == email) {
+            showAlert("El correo ya está registrado.", "danger");
+            get('email').classList.add('is-invalid');
+            hasError = true;
+            return; // Salir del forEach
+        }
+    });
+
     // Validaciones del nombre (se usaron las standar, aqui se ponen las que hizo Brenda)
     if (name.length < 2) {
         showAlert("El nombre debe tener al menos 2 caracteres.", "danger");
