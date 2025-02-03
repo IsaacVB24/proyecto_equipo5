@@ -1,0 +1,114 @@
+/* Fondo completo del carrito */
+body {
+    background-color: #ffecd1; /* Naranja claro */
+}
+
+/* Encabezado de carrito */
+.carrito-titulo {
+    color: white;
+    background-color: #f8a20a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Fondo de toda la tabla */
+.table {
+    background-color: #ffecd1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Encabezado de la tabla */
+.table-custom {
+    background-color: #f8a20a; 
+    color: white;
+}
+
+/* Imágenes en miniatura */
+.img-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Ajuste del input cantidad */
+.cantidad {
+    width: 60px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Contenedor del total */
+.total-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8a20a;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.total-container h4 {
+    margin-bottom: 10px;
+}
+
+/* Botón de proseguir con el pago */
+.btn-strong-orange {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: #f86927;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn-strong-orange:hover {
+    background-color: #cf711f;
+}
+
+/* Botón de eliminar producto */
+.btn-danger {
+    background-color: #ec760f; 
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d67d2f;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #212529;
+    }
+}
+
