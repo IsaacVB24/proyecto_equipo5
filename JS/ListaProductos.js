@@ -91,26 +91,26 @@ function mostrarCards(productos) {
     productos.forEach((producto, index) => {
         const descripcionCorta = producto.descripcion.slice(0, 100) + '...'; // Limitar descripción a 100 caracteres
         const card = `
-        <div class="card mb-3" id="${producto.categoria}_${index}" style="max-width: 540px;">
+        <div class="card mb-3" id="card_${producto.name}_${producto.categoria}_${index}" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="${producto.img}" class="img-fluid rounded-start" alt="${producto.name}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">${producto.name}</h5>
+                        <h5 class="card-title" id="${index}_${producto.name}">${producto.name}</h5>
                         <p class="card-text" id="descripcion_${index}" data-full-text="${producto.descripcion}">
                             ${descripcionCorta}
                         </p>
                         <button class="btn btn-link p-0 ver-mas" onclick="toggleDescripcion(${index})">Ver más</button>
-                        <p class="card-text mt-2"><strong>Precio:</strong> $${producto.precio} MXN</p>
+                        <p class="card-text mt-2"><strong>Precio:</strong> $<span id="precio_${index}_${producto.name}">${producto.precio}</span> MXN</p>
                         <div class="d-flex align-items-center">
                             <p class="mt-3" style="margin-right:30px">Cantidad: </p>
-                            <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${producto.categoria}_${index}')">-</button>
-                            <p id="input_${producto.categoria}_${index}" class="pt-3 mx-2 text-center" style="width: 60px;">1</p>
-                            <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${producto.categoria}_${index}')">+</button>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="decrementarCantidad('input_${producto.categoria}_${index}_${producto.name}')">-</button>
+                            <p id="input_${producto.categoria}_${index}_${producto.name}" class="pt-3 mx-2 text-center" style="width: 60px;">1</p>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="incrementarCantidad('input_${producto.categoria}_${index}_${producto.name}')">+</button>
                         </div>
-                        <button class="btn btn-success mt-3" onclick="agregarAlCarrito()">Agregar al carrito</button>
+                        <button class="btn btn-success mt-3" onclick="agregarAlCarrito('card_${producto.name}_${producto.categoria}_${index}')">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,35 @@ async function fetchingDatos() {
             <h1  class="text-center">Lista de Productos</h1>
             <h2 class="text-center" style="text-decoration:underline;">Podrás adquirir productos próximamente.</h2>
         `;
+        console.error(err);
     }
 }
 
 fetchingDatos();
+
+// Función para añadir el producto al carrito de localStorage
+function agregarAlCarrito(idDivCard) {
+    const elementosID = idDivCard.split('_');
+    const nombre = elementosID[1];
+    const categoria = elementosID[2];
+    const indexProducto = elementosID[3];
+    const divCardProducto = get(idDivCard);
+    const imagen = divCardProducto.querySelector('img').src;
+    const cantidad = get(`input_${categoria}_${indexProducto}_${nombre}`).textContent;
+    const precio = get(`precio_${indexProducto}_${nombre}`).textContent;
+
+    // Si ya existe el carrito en el almacenamiento local, se extrae para trabajar con el, de lo contrario, se crea un arreglo nuevo
+    const carrito = localStorage.getItem('carrito') ? JSON.parse(localStorage.getItem('carrito')) : [];
+
+    const productoCarrito = {
+        nombre: nombre,
+        img: imagen,
+        cantidad: cantidad,
+        precio: precio
+    };
+
+    carrito.push(productoCarrito);
+
+    // Se añade el carrito al localStorage. NO olvidar hacer un JSON.parse() cuando se extraiga un elemento del localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
