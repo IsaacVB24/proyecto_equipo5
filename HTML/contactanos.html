@@ -63,21 +63,21 @@
               <h3 class="text-center"> CONTÁCTANOS</h3>
               <label for="name" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="nombre" autocomplete="off">
-              <div class="invalid-feedback" id="nameError">El nombre debe de tener más de 3 caracteres.</div>
+              <div class="invalid-feedback" id="nameError">El nombre debe de tener al menos 2 caracteres.</div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico:</label>
-              <input type="email" name="email" id="email" class="form-control" placeholder="Ingresa tu correo electrónico" required>
+              <input type="text" name="email" id="email" class="form-control" placeholder="Ingresa tu correo electrónico">
               <div class="invalid-feedback" id="errorCorreo">El email no es valido</div>
             </div>
             <div class="mb-3">
               <label for="telefono" class="form-label">Número de Teléfono:</label>
-              <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número de teléfono" required>
+              <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu número de teléfono">
               <div class="invalid-feedback" id="errorTelefono">Número de teléfono inválido. Debe de tener 10 dígitos y no iniciar con 0.</div>
             </div>
             <div class="mb-3">
               <label for="txtMensaje" class="form-label">Mensaje:</label>
-              <textarea class="form-control" type="text" name="txtMensaje" id="txtMensaje" placeholder="Ingresa tu mensaje" style="resize: none;" required rows="5"></textarea>
+              <textarea class="form-control" type="text" name="txtMensaje" id="txtMensaje" placeholder="Ingresa tu mensaje" style="resize: none;" rows="5"></textarea>
               <p class="text-end">Caracteres restantes: <span id="caracteresRestantes">500</span></p>
               <div class="invalid-feedback" id="errorMensaje">Debes de ingresar un mensaje de mínimo 10 caracteres.</div>
             </div>
