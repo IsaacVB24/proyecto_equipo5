@@ -119,3 +119,43 @@ document.body.classList.add('fondoDegradado');
 
 // Ejecutar la función al cargar la página
 window.addEventListener('load', renderNavBar);
+
+/* ------------- Funciones de validación -------------- */
+
+const regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+const regexContr = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[_>.]).{8,}$/;
+
+// Validación correo
+function esCorreoInvalido(correo) {
+    return !regexEmail.test(correo);
+}
+
+// Validación teléfono
+function esTelefonoInvalido(telefono) {
+    console.log(telefono);
+    console.log(telefono.length);
+    if(telefono.length !== 10) return true;
+    if(telefono[0] == 0) return true;
+    if(telefono[0] == 0 && telefono[1] == 0) return true;
+    if(/00000/.test(telefono)) return true;
+    if(telefono.includes(' ')) return true;
+    if(!/^\d+$/.test(telefono)) return true;
+}
+
+// Validación contraseña
+function esPasswordIncorrecto(password) {
+    if(password.length < 8) return true;
+    return !regexContr.test(password);
+}
+/* --------------------------- */
+
+// Función para mostrar u ocultar la contraseña
+function toggleVisibilidadContraseña(icono) {
+    icono.addEventListener('click', function() {
+        if (pass.type === 'password') {
+            pass.type = 'text';
+        } else {
+            pass.type = 'password';
+        }
+    });
+}
