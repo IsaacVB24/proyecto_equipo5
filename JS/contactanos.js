@@ -40,21 +40,20 @@ contactForm.addEventListener('submit', (event) => {
     errorMensaje.style.display = 'none';
 
     // Validaciones
-    if (name.length <= 2) {
+    if (name.length < 2) {
         document.getElementById('name').classList.add('is-invalid');
         document.getElementById('nameError').style.display = 'block';
         isValid = false;
     }
 
-    let regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-    if (!regexEmail.test(email.value)) {
+    if (esCorreoInvalido(email.value.trim())) {
         email.classList.add('is-invalid');
         errorCorreo.style.display = 'block';
         isValid = false;
     }
 
-    if (telefono.value.length !== 10 || telefono.value[0] === "0" || !/^\d+$/.test(telefono.value)) {
-        errorTelefono.innerHTML = "Número de teléfono inválido. Debe de tener 10 dígitos.";
+    if (esTelefonoInvalido(telefono.value.trim())) {
+        errorTelefono.innerHTML = "Número de teléfono inválido. Debe de tener 10 dígitos, no incluir espacios, no tener más de 5 ceros consecutivos y no iniciar con 0 ni 00.";
         errorTelefono.style.display = 'block';
         telefono.classList.add('is-invalid');
         isValid = false;
