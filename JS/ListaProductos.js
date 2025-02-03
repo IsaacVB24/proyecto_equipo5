@@ -174,29 +174,82 @@ async function fetchingDatos() {
 
 fetchingDatos();
 
-// Función para añadir el producto al carrito de localStorage
+//Funcion para agregar prodcto al carrito
 function agregarAlCarrito(idDivCard) {
+    const divCardProducto = document.getElementById(idDivCard);
+    if (!divCardProducto) {
+        console.error(`No se encontró el producto con ID: ${idDivCard}`);
+        return;
+    }
+
     const elementosID = idDivCard.split('_');
     const nombre = elementosID[1];
     const categoria = elementosID[2];
     const indexProducto = elementosID[3];
-    const divCardProducto = get(idDivCard);
+
     const imagen = divCardProducto.querySelector('img').src;
-    const cantidad = get(`input_${categoria}_${indexProducto}_${nombre}`).textContent;
-    const precio = get(`precio_${indexProducto}_${nombre}`).textContent;
+    const cantidad = parseInt(document.getElementById(`input_${categoria}_${indexProducto}_${nombre}`).textContent);
+    const precio = parseFloat(document.getElementById(`precio_${indexProducto}_${nombre}`).textContent);
+    // Obtener la descripción correctamente desde `data-full-text`
+    const descripcionElemento = document.getElementById(`descripcion_${indexProducto}`);
+    const descripcion = descripcionElemento ? descripcionElemento.dataset.fullText : "No hay descripción disponible.";
 
-    // Si ya existe el carrito en el almacenamiento local, se extrae para trabajar con el, de lo contrario, se crea un arreglo nuevo
-    const carrito = localStorage.getItem('carrito') ? JSON.parse(localStorage.getItem('carrito')) : [];
 
-    const productoCarrito = {
-        nombre: nombre,
-        img: imagen,
-        cantidad: cantidad,
-        precio: precio
-    };
+    if (isNaN(cantidad) || isNaN(precio)) {
+        console.error("Error al obtener la cantidad o el precio del producto.");
+        return;
+    }
 
-    carrito.push(productoCarrito);
+    // Obtener el carrito desde localStorage o inicializarlo vacío
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    // Se añade el carrito al localStorage. NO olvidar hacer un JSON.parse() cuando se extraiga un elemento del localStorage
+    // Buscar si el producto ya está en el carrito
+    let productoExistente = carrito.find(producto => producto.nombre === nombre);
+
+    if (productoExistente) {
+        productoExistente.cantidad += cantidad; // Si existe, aumenta la cantidad
+    } else {
+        carrito.push({
+            nombre: nombre,
+            img: imagen,
+            cantidad: cantidad,
+            precio: precio,
+            descripcion: descripcion
+        });
+    }
+
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // Mostrar mensaje en verde de que se agregó correctamente
+    mostrarMensaje(`"${nombre}" se añadió al carrito correctamente.`);
 }
+
+// Función para mostrar mensaje en verde
+function mostrarMensaje(mensaje) {
+    let mensajeDiv = document.getElementById("mensaje-carrito");
+
+    if (!mensajeDiv) {
+        mensajeDiv = document.createElement("div");
+        mensajeDiv.id = "mensaje-carrito";
+        mensajeDiv.style.position = "fixed";
+        mensajeDiv.style.top = "10px";
+        mensajeDiv.style.right = "10px";
+        mensajeDiv.style.padding = "10px 20px";
+        mensajeDiv.style.backgroundColor = "#28a745"; 
+        mensajeDiv.style.color = "white";
+        mensajeDiv.style.fontSize = "16px";
+        mensajeDiv.style.borderRadius = "5px";
+        mensajeDiv.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.1)";
+        document.body.appendChild(mensajeDiv);
+    }
+
+    mensajeDiv.textContent = mensaje;
+    mensajeDiv.style.display = "block";
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(() => {
+        mensajeDiv.style.display = "none";
+    }, 3000);
+}
+
