@@ -79,6 +79,16 @@ body {
     background-color: #d67d2f;
 }
 
+.modal a, 
+.modal a:visited {
+    color: black !important; /* Negro por defecto */
+    text-decoration: underline !important;
+}
+
+.modal a:hover, 
+.modal a:focus {
+    color: red !important; /* Rojo al pasar el mouse */
+}
 /* Responsivo */
 @media (max-width: 768px) {
     .table thead {
