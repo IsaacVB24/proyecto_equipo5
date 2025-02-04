@@ -221,3 +221,33 @@ button[type="submit"]:hover {
 #contactForm {
     background-color: #f0ae57 !important;
 }
+
+@media (max-width: 768px) {
+    .social-item {
+        flex-direction: column; /* Hace que los elementos dentro de .social-item se apilen */
+        align-items: center; /* Centra los elementos */
+        text-align: center; /* Asegura que el texto se vea bien */
+    }
+
+    .social-item a {
+        flex-direction: column; /* Hace que los íconos y el texto estén en columna */
+        align-items: center; /* Centra el contenido */
+    }
+
+    .social-item svg {
+        margin-right: 0; /* Quita el margen derecho para evitar desplazamientos */
+        margin-bottom: 5px; /* Agrega un pequeño margen debajo del icono */
+    }
+
+    .social-text {
+        margin-left: 0; /* Quita el margen izquierdo para centrar el texto */
+        text-align: center; /* Alinea el texto al centro */
+    }
+
+    .social-links {
+        flex-direction: column; /* Apila los elementos en vertical */
+        gap: 15px; /* Espaciado entre cada red social */
+        align-items: center; /* Centra dentro del contenedor */
+    }
+}
+
