@@ -65,9 +65,16 @@ contactForm.addEventListener('submit', (event) => {
         isValid = false;
     }
 
-    // Si todo es válido, mostrar mensaje y redirigir
+    // Mensaje que se enviará si todo el formulario ha sido llenado con exito 
+    
     if (isValid) {
-        alert("Formulario enviado con éxito");
-        window.location.href = '../index.html';
+        Swal.fire({
+            icon: 'success',
+            title: '¡Formulario enviado!',
+            text: 'Tu formulario se ha enviado con éxito. Te redirigiremos a la página principal.',
+            confirmButtonText: 'Aceptar'
+        }).then(() => {
+            window.location.href = '../index.html';
+        });
     }
 });
