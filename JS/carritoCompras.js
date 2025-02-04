@@ -80,6 +80,26 @@ function abrirModalProducto(index) {
     modal.show();
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    let modal = document.getElementById("modalProducto");
+
+    modal.addEventListener("shown.bs.modal", function () {
+        let enlaces = modal.querySelectorAll(".modal-body a");
+        enlaces.forEach(enlace => {
+            enlace.style.color = "red";
+            enlace.style.textDecoration = "underline";
+
+            enlace.addEventListener("mouseenter", function() {
+                this.style.color = "#f86927";
+            });
+
+            enlace.addEventListener("mouseleave", function() {
+                this.style.color = "red";
+            });
+        });
+    });
+});
+
 
 // Modificar cantidad de un producto en el carrito
 function modificarCantidadCarrito(index, cambio) {
@@ -106,4 +126,57 @@ function eliminarDelCarrito(index) {
 
 // Cargar el carrito al abrir la página
 document.addEventListener("DOMContentLoaded", cargarCarrito);
+
+document.addEventListener("DOMContentLoaded", function() {
+    cargarCarrito();
+
+    // Detectar el botón de "Proseguir con el pago"
+    const botonPagar = document.querySelector(".btn-strong-orange");
+
+    if (botonPagar) {
+        botonPagar.addEventListener("click", function() {
+            verificarSesion();
+        });
+    }
+});
+
+// Función para verificar sesión antes de pagar
+function verificarSesion() {
+    let usuarioLogueado = localStorage.getItem("logueado");
+
+    if (!usuarioLogueado || usuarioLogueado !== "true") {
+        mostrarAlerta("⚠️ Debes iniciar sesión para continuar con el pago.");
+        setTimeout(() => {
+            window.location.href = "iniciarSesion.html"; // Redirigir a la página de inicio de sesión
+        }, 3000);
+    } else {
+        window.location.href = "pago.html"; // Redirigir al pago si ya está logueado
+    }
+}
+
+// Función para mostrar alerta flotante
+function mostrarAlerta(mensaje) {
+    let alerta = document.getElementById("alerta-flotante");
+
+    if (!alerta) {
+        alerta = document.createElement("div");
+        alerta.id = "alerta-flotante";
+        alerta.className = "alerta-flotante";
+        document.body.appendChild(alerta);
+    }
+
+    alerta.textContent = mensaje;
+    alerta.style.display = "block";
+
+    setTimeout(() => {
+        alerta.style.opacity = "1";
+    }, 100);
+
+    setTimeout(() => {
+        alerta.style.opacity = "0";
+        setTimeout(() => {
+            alerta.style.display = "none";
+        }, 500);
+    }, 3000);
+}
 
