@@ -132,8 +132,6 @@ function esCorreoInvalido(correo) {
 
 // Validación teléfono
 function esTelefonoInvalido(telefono) {
-    console.log(telefono);
-    console.log(telefono.length);
     if(telefono.length !== 10) return true;
     if(telefono[0] == 0) return true;
     if(telefono[0] == 0 && telefono[1] == 0) return true;
