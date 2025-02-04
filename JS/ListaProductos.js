@@ -225,7 +225,7 @@ function agregarAlCarrito(idDivCard) {
     mostrarMensaje(`"${nombre}" se añadió al carrito correctamente.`);
 }
 
-// Función para mostrar mensaje en verde
+// Función para mostrar mensaje flotante sobre todo
 function mostrarMensaje(mensaje) {
     let mensajeDiv = document.getElementById("mensaje-carrito");
 
@@ -233,23 +233,45 @@ function mostrarMensaje(mensaje) {
         mensajeDiv = document.createElement("div");
         mensajeDiv.id = "mensaje-carrito";
         mensajeDiv.style.position = "fixed";
-        mensajeDiv.style.top = "10px";
-        mensajeDiv.style.right = "10px";
-        mensajeDiv.style.padding = "10px 20px";
-        mensajeDiv.style.backgroundColor = "#28a745"; 
+        mensajeDiv.style.top = "20px";
+        mensajeDiv.style.right = "20px";
+        mensajeDiv.style.padding = "15px 25px";
+        mensajeDiv.style.backgroundColor = "#28a745"; // Verde de éxito
         mensajeDiv.style.color = "white";
-        mensajeDiv.style.fontSize = "16px";
-        mensajeDiv.style.borderRadius = "5px";
-        mensajeDiv.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.1)";
+        mensajeDiv.style.fontSize = "18px";
+        mensajeDiv.style.borderRadius = "8px";
+        mensajeDiv.style.boxShadow = "0px 5px 15px rgba(0,0,0,0.2)";
+        mensajeDiv.style.zIndex = "99999"; // Asegura que esté sobre todo
+        mensajeDiv.style.opacity = "0"; 
+        mensajeDiv.style.transform = "translateY(-20px)"; // Animación inicial
+        mensajeDiv.style.transition = "opacity 0.4s ease-out, transform 0.4s ease-out";
         document.body.appendChild(mensajeDiv);
     }
 
     mensajeDiv.textContent = mensaje;
     mensajeDiv.style.display = "block";
 
-    // Ocultar el mensaje después de 3 segundos
+    // Animación de aparición
     setTimeout(() => {
-        mensajeDiv.style.display = "none";
+        mensajeDiv.style.opacity = "1";
+        mensajeDiv.style.transform = "translateY(0)";
+    }, 100);
+
+    // Ocultar el mensaje después de 3 segundos con animación
+    setTimeout(() => {
+        mensajeDiv.style.opacity = "0";
+        mensajeDiv.style.transform = "translateY(-20px)";
+        setTimeout(() => {
+            mensajeDiv.style.display = "none";
+        }, 400); // Espera a que termine la animación
     }, 3000);
 }
+
+
+
+
+
+
+
+
 

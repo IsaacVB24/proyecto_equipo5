@@ -3,6 +3,26 @@ body {
     background-color: #ffecd1; /* Naranja claro */
 }
 
+/* Alerta flotante para sesión */
+.alerta-flotante {
+    position: fixed;
+    top: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FABC3F; 
+    color: black;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
 /* Encabezado de carrito */
 .carrito-titulo {
     color: white;
@@ -79,15 +99,55 @@ body {
     background-color: #d67d2f;
 }
 
-.modal a, 
-.modal a:visited {
-    color: black !important; /* Negro por defecto */
+
+
+#modalProducto .modal-body a {
+    all: unset !important; /* Elimina todos los estilos de Bootstrap */
+    color: red !important;
     text-decoration: underline !important;
+    cursor: pointer;
 }
 
-.modal a:hover, 
-.modal a:focus {
-    color: red !important; /* Rojo al pasar el mouse */
+#modalProducto .modal-body a:hover {
+    color: #f86927 !important;
+}
+
+
+
+/* Estilos mejorados para el modal */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background-color: #f86927;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.modal-footer {
+    background-color: #ffecd1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 /* Responsivo */
 @media (max-width: 768px) {
