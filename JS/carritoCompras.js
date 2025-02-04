@@ -1,5 +1,5 @@
 function cargarCarrito() {
-    console.log("Cargando carrito desde localStorage..."); // Depuración
+    //console.log("Cargando carrito desde localStorage..."); // Depuración
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
