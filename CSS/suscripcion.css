@@ -5,10 +5,11 @@
     --color-resaltado: #821131;
 }
 
-h1{
+h1 {
     text-align: center;
     color: white !important;
 }
+
 .user-options button {
     background: none;
     border: none;
@@ -23,6 +24,7 @@ h1{
     justify-content: space-around;
     margin: 40px auto;
     width: 80%;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
 }
 
 /* Estilos de las cards */
@@ -79,4 +81,23 @@ h1{
 .seleccionar:hover {
     background: var(--color-secundario);
     color: white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .suscripciones {
+        flex-direction: column;
+        align-items: center; /* Centra las cards en la pantalla */
+    }
+
+    .card {
+        width: 80%; /* Aumenta el ancho para adaptarse mejor a pantallas pequeñas */
+        margin-bottom: 20px; /* Espacio entre cada card */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 95%; /* Se ajusta casi a todo el ancho de la pantalla en móviles pequeños */
+    }
 }
