@@ -19,6 +19,12 @@ h1 {
     8px;
 }
 
+
+a, button, .btn-nav, .nav-link, .bi-cart4, .bi-person-circle {
+    cursor: pointer;
+}
+
+
 .navbar {
     justify-content: space-between;
 }
