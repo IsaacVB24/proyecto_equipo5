@@ -1,9 +1,9 @@
-/* Fondo completo del carrito */
+
 body {
-    background-color: #ffecd1; /* Naranja claro */
+    background-color: #eca644; 
 }
 
-/* Alerta flotante para sesión */
+/* Alerta para sesión */
 .alerta-flotante {
     position: fixed;
     top: 80px; 
@@ -22,29 +22,32 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-
 /* Encabezado de carrito */
 .carrito-titulo {
     color: white;
     background-color: #f8a20a;
     padding: 15px;
     border-radius: 10px;
+    text-align: center;
 }
 
-/* Fondo de toda la tabla */
+
 .table {
     background-color: #ffecd1;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* Encabezado de la tabla */
+
 .table-custom {
     background-color: #f8a20a; 
     color: white;
+    text-align: center;
 }
 
-/* Imágenes en miniatura */
 .img-thumbnail {
     width: 60px;
     height: 60px;
@@ -52,7 +55,7 @@ body {
     border-radius: 8px;
 }
 
-/* Ajuste del input cantidad */
+
 .cantidad {
     width: 60px;
     text-align: center;
@@ -83,6 +86,9 @@ body {
     background-color: #f86927;
     transition: 0.3s ease;
     border: none;
+    color: white;
+    text-align: center;
+    width: 100%;
 }
 
 .btn-strong-orange:hover {
@@ -93,6 +99,10 @@ body {
 .btn-danger {
     background-color: #ec760f; 
     border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
 
 .btn-danger:hover {
@@ -100,9 +110,8 @@ body {
 }
 
 
-
 #modalProducto .modal-body a {
-    all: unset !important; /* Elimina todos los estilos de Bootstrap */
+    all: unset !important;
     color: red !important;
     text-decoration: underline !important;
     cursor: pointer;
@@ -113,8 +122,6 @@ body {
 }
 
 
-
-/* Estilos mejorados para el modal */
 .modal-content {
     border-radius: 10px;
     border: none;
@@ -149,10 +156,12 @@ body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-/* Responsivo */
+
+/* RESPONSIVIDAD */
 @media (max-width: 768px) {
+    
     .table thead {
-        display: none;
+        display: none; 
     }
 
     .table, .table tbody, .table tr, .table td {
@@ -170,6 +179,9 @@ body {
         text-align: right;
         position: relative;
         padding-left: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .table td:before {
@@ -180,5 +192,32 @@ body {
         text-transform: uppercase;
         color: #212529;
     }
-}
 
+ 
+    .img-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .btn-strong-orange,
+    .btn-danger {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+  
+    .total-container {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 15px;
+    }
+
+ 
+    .modal-body img {
+        max-width: 80%;
+    }
+}
