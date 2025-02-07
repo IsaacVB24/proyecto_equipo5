@@ -248,13 +248,13 @@ footer {
 }
 
 @media (max-width: 992px) {
-    /* Ajustar diseño en pantallas medianas */
+
     #contenido {
-        flex-direction: column; /* Cambiar a diseño en columna */
+        flex-direction: column;
     }
 
     #fondo-degradado {
-        height: 200px; /* Reducir tamaño del fondo degradado */
+        height: 200px; 
     }
 
     .login_container {
@@ -263,7 +263,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Ajustar para pantallas pequeñas (tablets) */
+   
     .input_field {
         height: 45px;
         font-size: 0.9rem;
@@ -282,21 +282,21 @@ footer {
     }
 }
 
-/* Media Queries */
+
 @media (max-width: 576px) {
-    /* Ajustes para pantallas móviles */
+    
     #contenido {
         flex-direction: column;
     }
 
     #fondo-degradado {
-        display: none; /* Ocultar fondo degradado */
+        display: none; 
     }
 
     .login_container {
-        width: 95%; /* Ancho casi completo */
-        border: none; /* Eliminar el borde naranja */
-        box-shadow: none; /* Eliminar sombras si es necesario */
+        width: 95%; 
+        border: none; 
+        box-shadow: none; 
     }
 
     .input_field {

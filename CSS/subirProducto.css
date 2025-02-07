@@ -1,8 +1,8 @@
 :root {
-    --color-principal: #FABC3F; /* Amarillo principal */
-    --color-fondo: #E85C0D; /* Fondo naranja */
-    --color-secundario: #C7253E; /* Rojo secundario */
-    --color-resaltado: #821131; /* Vino oscuro */
+    --color-principal: #FABC3F; 
+    --color-fondo: #E85C0D; 
+    --color-secundario: #C7253E; 
+    --color-resaltado: #821131; 
 }
 
 body {

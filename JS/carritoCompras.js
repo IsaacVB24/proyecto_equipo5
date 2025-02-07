@@ -1,5 +1,5 @@
 function cargarCarrito() {
-    //console.log("Cargando carrito desde localStorage..."); // Depuración
+  
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function modificarCantidadCarrito(index, cambio) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     
-    if (!carrito[index]) return; // Evita errores si el índice no existe
+    if (!carrito[index]) return; 
 
     carrito[index].cantidad = Math.max(1, (parseInt(carrito[index].cantidad) || 1) + cambio);
 
@@ -140,19 +140,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Función para verificar sesión antes de pagar
-function verificarSesion() {
-    let usuarioLogueado = localStorage.getItem("logueado");
 
-    if (!usuarioLogueado || usuarioLogueado !== "true") {
-        mostrarAlerta("⚠️ Debes iniciar sesión para continuar con el pago.");
-        setTimeout(() => {
-            window.location.href = "iniciarSesion.html"; // Redirigir a la página de inicio de sesión
-        }, 3000);
-    } else {
-        window.location.href = "pago.html"; // Redirigir al pago si ya está logueado
+document.addEventListener("DOMContentLoaded", function() {
+    cargarCarrito();
+
+    const botonPagar = document.querySelector(".btn-strong-orange");
+
+    if (botonPagar) {
+        botonPagar.addEventListener("click", function(event) {
+            if (localStorage.getItem("logueado") !== "true") {
+                event.preventDefault();
+                mostrarAlerta("⚠️ Debes iniciar sesión antes de continuar con el pago.");
+            } else {
+                window.location.href = "pago.html";
+            }
+        });
     }
-}
+});
+
 
 // Función para mostrar alerta flotante
 function mostrarAlerta(mensaje) {
@@ -179,4 +184,5 @@ function mostrarAlerta(mensaje) {
         }, 500);
     }, 3000);
 }
+
 

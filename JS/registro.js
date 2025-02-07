@@ -47,14 +47,14 @@ registroForm.addEventListener("submit", (event) => {
 
     // Validación del teléfono x3
     if (esTelefonoInvalido(telefono)) {
-        showAlert("Número de teléfono inválido. Debe de tener 10 dígitos, no incluir espacios, no tener más de 5 ceros consecutivos y no iniciar con 0 ni 00.", "danger");
+        showAlert("Número de teléfono inválido. Debe de tener 10 dígitos, no incluir espacios y no iniciar con 0 ni 00.", "danger");
         document.getElementById("phone").classList.add("is-invalid");
         hasError = true;
     }
 
     // Validación de la contraseña
     if(esPasswordIncorrecto(password)) {
-        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un símbolo (., >, _), contener al menos un dígito, una minúscula y una mayúscula.", "danger");
+        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un caracter especial (./*$), contener al menos un dígito, una minúscula y una mayúscula.", "danger");
         document.getElementById("pass").classList.add("is-invalid");
         hasError = true;
     }
