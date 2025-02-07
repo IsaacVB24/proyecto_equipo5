@@ -1,0 +1,61 @@
+:root {
+    --color-principal: #FABC3F; 
+    --color-fondo: #E85C0D; 
+    --color-secundario: #C7253E; 
+    --color-resaltado: #821131; 
+}
+
+
+
+#contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#perfil {
+    background-color: var(--color-fondo);
+    border: var(--color-principal) solid 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--color-principal);
+}
+
+.perfil-info p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+button {
+    background-color: var(--color-resaltado);
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--color-principal);
+    color: var(--color-secundario);
+}
+
+@media (max-width: 768px) {
+    #perfil {
+        width: 90%;
+    }
+}

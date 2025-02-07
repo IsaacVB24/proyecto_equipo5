@@ -6,9 +6,8 @@
     --color-resaltado: #821131;
 }
 
-/* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif; /* Fuente elegante */
+    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
     background-color: var(--color-fondo);
@@ -16,7 +15,7 @@ body {
 }
 
 
-/* Estilo del título */
+
 h1 {
     font-size: 2.5rem;
     text-align:center;
@@ -39,7 +38,7 @@ main {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Efecto hover para mejorar el diseño */
+
 main:hover {
     transform: scale(1.02);
 }

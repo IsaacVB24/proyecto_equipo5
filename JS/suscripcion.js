@@ -2,20 +2,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const botones = document.querySelectorAll(".seleccionar");
 
     botones.forEach(boton => {
-        boton.addEventListener("click", function() {
-            // Verifica si el usuario ha iniciado sesión en localStorage
-            if (localStorage.getItem("logueado") === "true") {
-                // Si está logueado, redirige a pago.html
-                window.location.href = "pago.html";
-            } else {
-                // Si no ha iniciado sesión, muestra alerta y luego redirige a iniciarSesion.html
+        boton.addEventListener("click", function(event) {
+            if (localStorage.getItem("logueado") !== "true") {
+                event.preventDefault(); 
                 mostrarAlerta("⚠️ Debes iniciar sesión antes de seleccionar una suscripción.");
+            } else {
+                window.location.href = "pago.html";
             }
         });
     });
 });
 
-// Función para mostrar alerta flotante y luego redirigir a iniciarSesion.html
+
+//  Función para mostrar alerta flotante
 function mostrarAlerta(mensaje) {
     let alerta = document.getElementById("alerta-flotante");
 
@@ -40,17 +39,14 @@ function mostrarAlerta(mensaje) {
     alerta.textContent = mensaje;
     alerta.style.display = "block";
 
-    // Animación de aparición
     setTimeout(() => {
         alerta.style.opacity = "1";
     }, 100);
 
-    // Ocultar la alerta después de 3 segundos y redirigir a iniciar sesión
     setTimeout(() => {
         alerta.style.opacity = "0";
         setTimeout(() => {
             alerta.style.display = "none";
-            window.location.href = "iniciarSesion.html"; 
         }, 500);
     }, 3000);
 }

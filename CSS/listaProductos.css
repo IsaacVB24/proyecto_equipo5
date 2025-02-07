@@ -27,15 +27,15 @@ body {
 
 .banner {
   width: 100%;
-  margin-top: 0; /* Asegura que no haya espacio entre la barra de navegación y el banner */
-  padding: 0; /* Evita espacios innecesarios */
+  margin-top: 0;
+  padding: 0; 
 }
 
 .banner img {
-  width: 100%; /* Asegura que la imagen ocupe todo el ancho */
-  height: auto; /* Mantiene la proporción */
+  width: 100%;
+  height: auto; 
   display: block;
-  object-fit: cover; /* Asegura que la imagen se ajuste bien sin distorsionarse */
+  object-fit: cover; 
 }
 
       
@@ -215,7 +215,7 @@ body {
     }
   
     .card .col-md-8 {
-      background: linear-gradient(to bottom right, #fff9c4, #ffcc80, #ffab91); /* Conserva el gradiente */
+      background: linear-gradient(to bottom right, #fff9c4, #ffcc80, #ffab91); 
       padding: 20px;
       text-align: left; 
     }

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rememberMe = document.getElementById("rememberMe");
     const loginForm = document.getElementById("formulario");
 
-    // Restaurar ícono de "ver contraseña"
+    // ícono de "ver contraseña"
     const passwordToggle = document.createElement("i");
     passwordToggle.className = "fa-regular fa-eye icon";
     passwordToggle.style.cursor = "pointer";

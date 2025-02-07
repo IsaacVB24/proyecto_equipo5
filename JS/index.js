@@ -1,4 +1,4 @@
-// Hero Button Scroll
+
 const heroButton = document.querySelector('.btn-warning');
 if (heroButton) {
     heroButton.addEventListener('click', () => {
@@ -9,7 +9,7 @@ if (heroButton) {
     });
 }
 
-// Carousel Initialization for Testimonials
+// Carousel
 const testimoniosCarousel = document.querySelector('#testimoniosCarousel');
 if (testimoniosCarousel) {
     const carouselInstance = new bootstrap.Carousel(testimoniosCarousel, {
@@ -18,7 +18,7 @@ if (testimoniosCarousel) {
     });
 }
 
-// Product Card Animation
+// Productos
 const productCards = document.querySelectorAll('.product-card');
 productCards.forEach(card => {
     card.addEventListener('mouseover', () => {
@@ -33,7 +33,7 @@ productCards.forEach(card => {
     });
 });
 
-// Button Alert on Product Cards
+// productos 2
 const productButtons = document.querySelectorAll('.btn-warning');
 productButtons.forEach(button => {
     button.addEventListener('click', () => {

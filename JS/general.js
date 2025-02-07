@@ -62,23 +62,68 @@ function renderNavBar() {
     const usuarios = JSON.parse(localStorage.getItem('archivoCuenta')) || [];
     const usuarioLogueado = usuarios.find((usuario) => usuario.isLoggedIn);
 
+    // Control de visibilidad del botón "Añadir producto"
+    const agregarProductos = document.getElementById('agregarProductos');
+    if (usuarioLogueado) {
+        agregarProductos.style.display = 'block'; // Mostrar si está logueado
+    } else {
+        agregarProductos.style.display = 'none'; // Ocultar si no está logueado
+    }
+
     if (usuarioLogueado) {
         // Eliminar botones de inicio de sesión y registro
         navContainer.querySelectorAll('button').forEach((btn) => btn.remove());
 
-        // Añadir ícono y nombre del usuario antes del carrito
+        // Agregar el botón de usuario con el nuevo diseño y dropdown
         navContainer.insertAdjacentHTML(
             'afterbegin',
-            `<div class="d-flex align-items-center user-info me-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle me-2" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-                <span class="text-light">${usuarioLogueado.username}</span>
+            `<div class="dropdown user-container">
+                <button class="button btn-usuario dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="user-icon" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                        <span class="user-name">${usuarioLogueado.username}</span>
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="../HTML/perfil.html">Mi Perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button class="dropdown-item" id="logoutBtn">Cerrar sesión</button></li>
+                </ul>
             </div>`
         );
+
+        // Agregar evento para cerrar sesión
+        document.getElementById("logoutBtn").addEventListener("click", cerrarSesion);
     }
 }
+
+// Función para cerrar sesión y ocultar "Añadir producto"
+function cerrarSesion() {
+    let usuarios = JSON.parse(localStorage.getItem("archivoCuenta")) || [];
+
+    // Marcar todos los usuarios como NO logueados
+    usuarios = usuarios.map(usuario => ({ ...usuario, isLoggedIn: false }));
+
+    // Guardar en localStorage
+    localStorage.setItem("archivoCuenta", JSON.stringify(usuarios));
+    localStorage.setItem("logueado", "false"); // 🔥 Establece logueado en false 🔥
+
+    mostrarAlerta("✅ Has cerrado sesión correctamente.");
+
+    // Ocultar el botón de "Añadir producto" tras cerrar sesión
+    document.getElementById('agregarProductos').style.display = 'none';
+
+    // Redirigir a la página de inicio de sesión
+    window.location.href = "../HTML/iniciarSesion.html";
+}
+
+// Ejecutar la función al cargar la página
+window.addEventListener('load', renderNavBar);
+
+
 
 function get(id) {
     return document.getElementById(id);
@@ -135,7 +180,6 @@ function esTelefonoInvalido(telefono) {
     if(telefono.length !== 10) return true;
     if(telefono[0] == 0) return true;
     if(telefono[0] == 0 && telefono[1] == 0) return true;
-    if(/00000/.test(telefono)) return true;
     if(telefono.includes(' ')) return true;
     if(!/^\d+$/.test(telefono)) return true;
 }
@@ -143,6 +187,7 @@ function esTelefonoInvalido(telefono) {
 // Validación contraseña
 function esPasswordIncorrecto(password) {
     if(password.length < 8) return true;
+    const regexContr = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/; 
     return !regexContr.test(password);
 }
 /* --------------------------- */
