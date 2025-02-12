@@ -41,8 +41,8 @@ registroForm.addEventListener("submit", async (event) => {
     }
 
     // Validación de la contraseña
-    if (esPasswordIncorrecto(password)) {
-        showAlert("La contraseña debe tener al menos 8 caracteres, un carácter especial, un número, una mayúscula y una minúscula.", "danger");
+    if(esPasswordIncorrecto(password)) {
+        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un caracter especial, contener al menos un dígito, una minúscula y una mayúscula.", "danger");
         document.getElementById("pass").classList.add("is-invalid");
         hasError = true;
     }
@@ -78,7 +78,7 @@ registroForm.addEventListener("submit", async (event) => {
 
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.message || "Error en el registro:" `${response.statusText}`);
+            throw new Error(errorData.message || `Error en el registro: ${response.statusText}`);
         }
 
         const result = await response.json();
@@ -92,7 +92,7 @@ registroForm.addEventListener("submit", async (event) => {
         }, 2000);
         
     } catch (error) {
-        showAlert("Error en el registro:" `${error.message}, "danger"`);
+        showAlert(`Error en el registro: ${error.message}`, "danger");
     }
 });
 
