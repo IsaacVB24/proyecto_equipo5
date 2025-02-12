@@ -168,7 +168,7 @@ window.addEventListener('load', renderNavBar);
 /* ------------- Funciones de validación -------------- */
 
 const regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-const regexContr = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[_>.]).{8,}$/;
+const regexContr = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
 // Validación correo
 function esCorreoInvalido(correo) {
@@ -187,10 +187,9 @@ function esTelefonoInvalido(telefono) {
 // Validación contraseña
 function esPasswordIncorrecto(password) {
     if(password.length < 8) return true;
-    const regexContr = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/; 
     return !regexContr.test(password);
 }
-/* --------------------------- */
+/* ---------------------------------------------------- */
 
 // Función para mostrar u ocultar la contraseña
 function toggleVisibilidadContraseña(icono) {
@@ -201,4 +200,41 @@ function toggleVisibilidadContraseña(icono) {
             pass.type = 'password';
         }
     });
+}
+
+//  Función para mostrar alerta flotante
+function mostrarAlerta(mensaje) {
+    let alerta = document.getElementById("alerta-flotante");
+
+    if (!alerta) {
+        alerta = document.createElement("div");
+        alerta.id = "alerta-flotante";
+        alerta.style.position = "fixed";
+        alerta.style.top = "20px";
+        alerta.style.right = "20px";
+        alerta.style.padding = "15px 25px";
+        alerta.style.backgroundColor = "#FABC3F"; 
+        alerta.style.color = "black";
+        alerta.style.fontSize = "16px";
+        alerta.style.borderRadius = "8px";
+        alerta.style.boxShadow = "0px 4px 10px rgba(0,0,0,0.2)";
+        alerta.style.zIndex = "99999";
+        alerta.style.opacity = "0";
+        alerta.style.transition = "opacity 0.3s ease-in-out";
+        document.body.appendChild(alerta);
+    }
+
+    alerta.textContent = mensaje;
+    alerta.style.display = "block";
+
+    setTimeout(() => {
+        alerta.style.opacity = "1";
+    }, 100);
+
+    setTimeout(() => {
+        alerta.style.opacity = "0";
+        setTimeout(() => {
+            alerta.style.display = "none";
+        }, 500);
+    }, 3000);
 }
