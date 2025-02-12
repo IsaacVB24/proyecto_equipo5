@@ -11,6 +11,8 @@ function cargarCarrito() {
     let totalCantidad = 0;
     let totalPrecio = 0;
 
+    
+
     if (carrito.length === 0) {
         carritoBody.innerHTML = `<tr><td colspan="6" class="text-center">El carrito está vacío</td></tr>`;
         totalProductos.textContent = 0;
@@ -142,6 +144,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("logueado") !== "true") {
+    }
     cargarCarrito();
 
     const botonPagar = document.querySelector(".btn-strong-orange");
@@ -184,5 +188,3 @@ function mostrarAlerta(mensaje) {
         }, 500);
     }, 3000);
 }
-
-

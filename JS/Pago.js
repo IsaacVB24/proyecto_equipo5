@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     //  Bloquear acceso si no hay sesión
     if (localStorage.getItem("logueado") !== "true") {
+       
         mostrarAlerta("⚠️ No tienes acceso a esta página. Inicia sesión primero.");
         setTimeout(() => {
             window.location.href = "../HTML/iniciarSesion.html";
