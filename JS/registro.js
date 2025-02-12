@@ -54,7 +54,7 @@ registroForm.addEventListener("submit", (event) => {
 
     // Validación de la contraseña
     if(esPasswordIncorrecto(password)) {
-        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un caracter especial (./*$), contener al menos un dígito, una minúscula y una mayúscula.", "danger");
+        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un caracter especial, contener al menos un dígito, una minúscula y una mayúscula.", "danger");
         document.getElementById("pass").classList.add("is-invalid");
         hasError = true;
     }
