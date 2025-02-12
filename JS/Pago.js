@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         setTimeout(() => {
             window.location.href = "../index.html";
+            vaciarCarrito();
         }, 3000);
     });
 
@@ -72,3 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
+// Función para vaciar el carrito después del pago
+function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    cargarCarrito();
+}

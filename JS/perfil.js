@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".perfil-info").innerHTML = "<p>No hay usuario registrado.</p>";
     }
 
-    // Cerrar sesión (elimina los datos del usuario actual)
+    // Cerrar sesión (elimina los datos del usuario actual y redirige después de 2 segundos)
     document.getElementById("logout").addEventListener("click", () => {
         localStorage.removeItem("archivoCuenta");
-        window.location.href = "../HTML/iniciarSesion.html"; // Redirige a la página de inicio de sesión
+        setTimeout(() => {
+            window.location.href = "../HTML/iniciarSesion.html"; // Redirige a la página de inicio de sesión
+        }, 2000); // 2000 milisegundos = 2 segundos
     });
 });
