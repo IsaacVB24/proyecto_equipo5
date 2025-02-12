@@ -1,7 +1,6 @@
 function cargarCarrito() {
-  
-
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    console.log(JSON.stringify(carrito));
 
     const carritoBody = document.getElementById("carrito-body");
     const totalProductos = document.getElementById("total-productos");
@@ -11,6 +10,20 @@ function cargarCarrito() {
     let totalCantidad = 0;
     let totalPrecio = 0;
 
+    const correoSesionIniciada = localStorage.getItem('correoSesionIniciada');
+    console.log(correoSesionIniciada);
+
+    let carritoUsuarioActual;
+
+    carrito.forEach(carritoUsuario => {
+        if(carritoUsuario[0] == correoSesionIniciada) {
+            carritoUsuarioActual = carritoUsuario;
+            return;
+        }
+    });
+
+    console.log(carritoUsuarioActual);
+
     if (carrito.length === 0) {
         carritoBody.innerHTML = `<tr><td colspan="6" class="text-center">El carrito está vacío</td></tr>`;
         totalProductos.textContent = 0;
@@ -18,7 +31,7 @@ function cargarCarrito() {
         return;
     }
 
-    carrito.forEach((producto, index) => {
+    carritoUsuarioActual[1].forEach((producto, index) => {
         // Convertir cantidad a número (por si se almacenó como string)
         let cantidad = parseInt(producto.cantidad) || 1;
         let precio = parseFloat(producto.precio) || 0;

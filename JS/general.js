@@ -118,6 +118,7 @@ function cerrarSesion() {
 
     // Redirigir a la página de inicio de sesión
     window.location.href = "../HTML/iniciarSesion.html";
+    localStorage.removeItem('correoSesionIniciada');
 }
 
 // Ejecutar la función al cargar la página

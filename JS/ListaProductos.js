@@ -209,13 +209,18 @@ function agregarAlCarrito(idDivCard) {
     if (productoExistente) {
         productoExistente.cantidad += cantidad; // Si existe, aumenta la cantidad
     } else {
-        carrito.push({
-            nombre: nombre,
-            img: imagen,
-            cantidad: cantidad,
-            precio: precio,
-            descripcion: descripcion
-        });
+        const carritoUsuario = [];
+        carritoUsuario.push(localStorage.getItem('correoSesionIniciada'));
+        carritoUsuario.push(
+            {
+                nombre: nombre,
+                img: imagen,
+                cantidad: cantidad,
+                precio: precio,
+                descripcion: descripcion
+            }
+        );
+        carrito.push(carritoUsuario);
     }
 
     // Guardar el carrito actualizado en localStorage

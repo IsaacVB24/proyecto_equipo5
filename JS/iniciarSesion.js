@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             usuario.isLoggedIn = usuario.email === email;
         });
         localStorage.setItem("archivoCuenta", JSON.stringify(usuarios));
+        localStorage.setItem("correoSesionIniciada", usuarioEncontrado.email);
 
         // Almacenar correo si "Recuérdame" está seleccionado
         if (rememberMe.checked) {
