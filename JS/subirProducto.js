@@ -38,7 +38,7 @@ document.getElementById("btnEnviar").addEventListener("click", function (e) {
   };
 
   //  **Enviar al backend  fetch**
-  fetch("url-back", {
+  fetch("http://localhost:8080/api/productos/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(producto)
