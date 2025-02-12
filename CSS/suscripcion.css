@@ -1,0 +1,103 @@
+:root {
+    --color-principal: #FABC3F;
+    --color-fondo: #E85C0D;
+    --color-secundario: #C7253E;
+    --color-resaltado: #821131;
+}
+
+h1 {
+    text-align: center;
+    color: white !important;
+}
+
+.user-options button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Sección de suscripción */
+.suscripciones {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px auto;
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+/* Estilos de las cards */
+.card {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
+}
+
+.contenido ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contenido li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contenido p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-resaltado);
+}
+
+/* Botón */
+.seleccionar {
+    background: var(--color-principal);
+    border: 2px solid var(--color-secundario);
+    color: black;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.seleccionar:hover {
+    background: var(--color-secundario);
+    color: white;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .suscripciones {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .card {
+        width: 80%; 
+        margin-bottom: 20px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 95%; 
+    }
+}

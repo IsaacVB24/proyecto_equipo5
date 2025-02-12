@@ -63,6 +63,24 @@ body {
     flex-direction: column;
 }
 
+.social-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-item svg {
+    margin-right: 5px; 
+    flex-shrink: 0; 
+}
 
 .social-text {
     display: flex; 
@@ -198,5 +216,38 @@ button[type="submit"]:hover {
 #caracteresRestantes {
     font-weight: bold;
     color: var(--color-resaltado);
+}
+
+#contactForm {
+    background-color: #f0ae57 !important;
+}
+
+@media (max-width: 768px) {
+    .social-item {
+        flex-direction: column;  
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .social-item a {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .social-item svg {
+        margin-right: 0; 
+        margin-bottom: 5px; 
+    }
+
+    .social-text {
+        margin-left: 0;
+        text-align: center; 
+    }
+
+    .social-links {
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: center;
+    }
 }
 

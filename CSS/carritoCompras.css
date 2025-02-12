@@ -1,0 +1,223 @@
+
+body {
+    background-color: #eca644; 
+}
+
+/* Alerta para sesión */
+.alerta-flotante {
+    position: fixed;
+    top: 80px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FABC3F; 
+    color: black;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Encabezado de carrito */
+.carrito-titulo {
+    color: white;
+    background-color: #f8a20a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.table {
+    background-color: #ffecd1;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.table-custom {
+    background-color: #f8a20a; 
+    color: white;
+    text-align: center;
+}
+
+.img-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.cantidad {
+    width: 60px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Contenedor del total */
+.total-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f8a20a;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.total-container h4 {
+    margin-bottom: 10px;
+}
+
+/* Botón de proseguir con el pago */
+.btn-strong-orange {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: #f86927;
+    transition: 0.3s ease;
+    border: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-strong-orange:hover {
+    background-color: #cf711f;
+}
+
+/* Botón de eliminar producto */
+.btn-danger {
+    background-color: #ec760f; 
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #d67d2f;
+}
+
+
+#modalProducto .modal-body a {
+    all: unset !important;
+    color: red !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+
+#modalProducto .modal-body a:hover {
+    color: #f86927 !important;
+}
+
+
+.modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background-color: #f86927;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-body img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.modal-footer {
+    background-color: #ffecd1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+    
+    .table thead {
+        display: none; 
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #212529;
+    }
+
+ 
+    .img-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .btn-strong-orange,
+    .btn-danger {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+  
+    .total-container {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 15px;
+    }
+
+ 
+    .modal-body img {
+        max-width: 80%;
+    }
+}

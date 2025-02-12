@@ -1,0 +1,210 @@
+
+:root {
+    --color-principal: #FABC3F;
+    --color-fondo: #E85C0D;
+    --color-secundario: #C7253E;
+    --color-resaltado: #821131;
+    --color-tarjeta: #FFF3E0;
+    --color-boton: #FF8C00; 
+}
+
+/* Estilo general */
+body {
+    
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.banner {
+    width: 100%;
+    margin-top: 0; 
+    padding: 0; 
+  }
+  
+  .banner img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+    object-fit: cover; 
+  }
+  
+.hero-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-header img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; 
+    object-fit: cover; 
+}
+
+.hero-text {
+    text-align: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+.ofertas-diarias {
+    text-align: center;
+    padding: 50px 20px;
+    background: none; 
+    color: black;
+}
+
+
+.carrusel-container {
+    width: 100%;
+    background-color: white; 
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Carrusel ajustado */
+.carousel {
+    width: 80%;
+    max-width: 900px;
+}
+
+
+.carrusel-img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain; 
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Flechas de navegación */
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+/* Indicadores (puntos abajo) */
+.carousel-indicators button {
+    background-color: gray; 
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    background-color: black; 
+    opacity: 1;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .carrusel-img {
+        height: 300px;
+    }
+}
+
+/* Contenedor de productos */
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos para cada producto */
+.producto {
+    background: var(--color-tarjeta);
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+/* Ajuste de imágenes en los productos */
+.producto img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Botones */
+.btn-comprar, .btn-socio {
+    background: var(--color-boton);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-comprar:hover, .btn-socio:hover {
+    background: var(--color-resaltado);
+}
+
+/* Sección exclusiva para socios */
+.mercancia-exclusiva {
+    text-align: center;
+    padding: 50px 20px;
+    background: none;
+}
+
+.mercancia-exclusiva h2 {
+    background: var(--color-secundario);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Botón exclusivo */
+.btn-socio {
+    background: var(--color-resaltado);
+}
+
+.btn-socio:hover {
+    background: var(--color-secundario);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .producto {
+        width: 100%;
+    }
+    
+    .carrusel-img {
+        height: 300px;
+    }
+}

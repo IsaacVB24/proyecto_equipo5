@@ -4,14 +4,14 @@
 const estructuraNav = `
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="barra">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../HTML/AcercaDeNosotros.html"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
+        <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="logo" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Productos</a>
+                    <a class="nav-link" href="../HTML/listaProductos.html">Productos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../HTML/mercado.html">Mercado diario</a>
@@ -20,7 +20,7 @@ const estructuraNav = `
                     <a class="nav-link" href="../HTML/AcercaDeNosotros.html">Acerca de nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../HTML/subirProducto.html">Añadir producto</a>
+                    <a class="nav-link" href="../HTML/subirProducto.html" style="display: ${localStorage.getItem('logueado') == 'true' ? 'block' : 'none'};" id="agregarProductos">Añadir producto</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
@@ -56,23 +56,149 @@ fontLink.rel = 'stylesheet';
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Patrick+Hand&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap';
 document.head.appendChild(fontLink);
 
-document.body.insertAdjacentHTML('beforeend', `
-  <div class="row mt-3" id="pie">
-  <div class="col-md-2"><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
-  <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
-    <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
-    <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
-    <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
-    <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
-  </div>
-</div>`);
+// Actualizar la barra de navegación al iniciar sesión
+function renderNavBar() {
+    const navContainer = document.querySelector('.navbar .d-flex');
+    const usuarios = JSON.parse(localStorage.getItem('archivoCuenta')) || [];
+    const usuarioLogueado = usuarios.find((usuario) => usuario.isLoggedIn);
 
-// Función para mandar a llamar a un elemento por su ID
+    // Control de visibilidad del botón "Añadir producto"
+    const agregarProductos = document.getElementById('agregarProductos');
+    if (usuarioLogueado) {
+        agregarProductos.style.display = 'block'; // Mostrar si está logueado
+    } else {
+        agregarProductos.style.display = 'none'; // Ocultar si no está logueado
+    }
+
+    if (usuarioLogueado) {
+        // Eliminar botones de inicio de sesión y registro
+        navContainer.querySelectorAll('button').forEach((btn) => btn.remove());
+
+        // Agregar el botón de usuario con el nuevo diseño y dropdown
+        navContainer.insertAdjacentHTML(
+            'afterbegin',
+            `<div class="dropdown user-container">
+                <button class="button btn-usuario dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="user-icon" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                        <span class="user-name">${usuarioLogueado.username}</span>
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="../HTML/perfil.html">Mi Perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button class="dropdown-item" id="logoutBtn">Cerrar sesión</button></li>
+                </ul>
+            </div>`
+        );
+
+        // Agregar evento para cerrar sesión
+        document.getElementById("logoutBtn").addEventListener("click", cerrarSesion);
+    }
+}
+
+// Función para cerrar sesión y ocultar "Añadir producto"
+function cerrarSesion() {
+    let usuarios = JSON.parse(localStorage.getItem("archivoCuenta")) || [];
+
+    // Marcar todos los usuarios como NO logueados
+    usuarios = usuarios.map(usuario => ({ ...usuario, isLoggedIn: false }));
+
+    // Guardar en localStorage
+    localStorage.setItem("archivoCuenta", JSON.stringify(usuarios));
+    localStorage.setItem("logueado", "false"); // 🔥 Establece logueado en false 🔥
+
+    mostrarAlerta("✅ Has cerrado sesión correctamente.");
+
+    // Ocultar el botón de "Añadir producto" tras cerrar sesión
+    document.getElementById('agregarProductos').style.display = 'none';
+
+    // Redirigir a la página de inicio de sesión
+    window.location.href = "../HTML/iniciarSesion.html";
+}
+
+// Ejecutar la función al cargar la página
+window.addEventListener('load', renderNavBar);
+
+
+
 function get(id) {
     return document.getElementById(id);
 }
 
-// Debe de existir el div con id "contenido" para que no se muestre este mensaje en las páginas que ya tienen contenido funcional
-window.addEventListener('load', (event) => {
-  if(!get('contenido')) get('barra').insertAdjacentHTML('afterend', '<h1>Página en construcción.</h1>');
-});
+function verificarContainer() {
+    if (!document.querySelector('#contenido')) {
+        document.body.insertAdjacentHTML('beforeend', `<h1>PÁGINA EN CONSTRUCCIÓN</h1>`);
+    }
+}
+
+verificarContainer();
+
+document.body.insertAdjacentHTML('beforeend', `
+    <footer class="footer mt-auto py-3" id="pie">
+        <div><img src="../IMG/banderaMexico.webp" alt="bandera de México" id="bandera"></div>
+        <div class="col-md-10 text-center row row-cols-2" id="pie-contenido">
+            <div class="col col-md-3"><a href="../HTML/avisoDePrivacidad.html">Aviso de privacidad</a></div>
+            <div class="col col-md-3"><a href="../HTML/contactanos.html">Contáctanos</a></div>
+            <div class="col col-md-3"><a href="../HTML/terminos.html">Términos y condiciones</a></div>
+            <div class="col col-md-3"><a href="../HTML/suscripcion.html">Suscripciones</a></div>
+        </div>
+    </footer>
+`);
+
+function inyectarFavicon() {
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/x-icon';
+    link.href = '/IMG/LOGO.png';
+    document.head.appendChild(link);
+}
+
+inyectarFavicon();
+
+// Añadir la clase con estilos en general.css
+document.body.classList.add('fondoDegradado');
+
+// Ejecutar la función al cargar la página
+window.addEventListener('load', renderNavBar);
+
+/* ------------- Funciones de validación -------------- */
+
+const regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+const regexContr = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[_>.]).{8,}$/;
+
+// Validación correo
+function esCorreoInvalido(correo) {
+    return !regexEmail.test(correo);
+}
+
+// Validación teléfono
+function esTelefonoInvalido(telefono) {
+    if(telefono.length !== 10) return true;
+    if(telefono[0] == 0) return true;
+    if(telefono[0] == 0 && telefono[1] == 0) return true;
+    if(telefono.includes(' ')) return true;
+    if(!/^\d+$/.test(telefono)) return true;
+}
+
+// Validación contraseña
+function esPasswordIncorrecto(password) {
+    if(password.length < 8) return true;
+    const regexContr = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/; 
+    return !regexContr.test(password);
+}
+/* --------------------------- */
+
+// Función para mostrar u ocultar la contraseña
+function toggleVisibilidadContraseña(icono) {
+    icono.addEventListener('click', function() {
+        if (pass.type === 'password') {
+            pass.type = 'text';
+        } else {
+            pass.type = 'password';
+        }
+    });
+}

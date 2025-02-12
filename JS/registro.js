@@ -2,6 +2,9 @@
 const registroForm = document.getElementById("formulario");
 const archivoCuenta = JSON.parse(localStorage.getItem("archivoCuenta")) || [];
 
+const verContr = get('verContr');
+const pass = document.getElementById('pass');
+
 // Nuestra validación al enviar el formulario
 registroForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevenir el envío del formulario
@@ -18,6 +21,16 @@ registroForm.addEventListener("submit", (event) => {
 
     let hasError = false;
 
+    // Validar si ya existe una cuenta con el correo ingresado
+    archivoCuenta.forEach(datoCuenta => {
+        if(datoCuenta.email == email) {
+            showAlert("El correo ya está registrado.", "danger");
+            get('email').classList.add('is-invalid');
+            hasError = true;
+            return; // Salir del forEach
+        }
+    });
+
     // Validaciones del nombre (se usaron las standar, aqui se ponen las que hizo Brenda)
     if (name.length < 2) {
         showAlert("El nombre debe tener al menos 2 caracteres.", "danger");
@@ -26,17 +39,23 @@ registroForm.addEventListener("submit", (event) => {
     }
 
     // Validación del correo electrónico x2 a lo de arriba
-    const regexEmail = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/;
-    if (!regexEmail.test(email)) {
+    if (esCorreoInvalido(email)) {
         showAlert("El correo electrónico no es válido.", "danger");
         document.getElementById("email").classList.add("is-invalid");
         hasError = true;
     }
 
     // Validación del teléfono x3
-    if (telefono.length !== 10 || !/^\d+$/.test(telefono) || telefono === "0000000000") {
-        showAlert("El número de teléfono debe tener 10 dígitos y no puede ser '0000000000'.", "danger");
+    if (esTelefonoInvalido(telefono)) {
+        showAlert("Número de teléfono inválido. Debe de tener 10 dígitos, no incluir espacios y no iniciar con 0 ni 00.", "danger");
         document.getElementById("phone").classList.add("is-invalid");
+        hasError = true;
+    }
+
+    // Validación de la contraseña
+    if(esPasswordIncorrecto(password)) {
+        showAlert("Escriba una contraseña válida. Debe de tener mínimo 8 caracteres, usar al menos un caracter especial (./*$), contener al menos un dígito, una minúscula y una mayúscula.", "danger");
+        document.getElementById("pass").classList.add("is-invalid");
         hasError = true;
     }
 
@@ -71,6 +90,9 @@ registroForm.addEventListener("submit", (event) => {
         }, 2000);
     }
 });
+
+// Función en general.js
+toggleVisibilidadContraseña(verContr);
 
 // Mostrar alertas, estas son modificadas dentro de las validaciones
 function showAlert(message, type) {

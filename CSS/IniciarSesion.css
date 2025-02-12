@@ -18,17 +18,21 @@
 
 
 body {
-    font-family: "Roboto Flex", sans-serif;
     margin: 0;
-    min-height: 100vh;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
+footer {
+    margin: 0;
+    padding: 0;
+}
 
 #contenido {
+    flex-grow: 1; 
     display: flex;
-    height: calc(100vh - 160px); 
 }
 
 
@@ -38,14 +42,32 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
+    padding: 20px 0;
+    margin: 0 10px;
+    background-color: #00000000;
 }
 
 
 #fondo-degradado {
     flex: 1;
-    background: linear-gradient(to right, #E85C0D, #FABC3F);
+}
+#formulario label {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
 
+#formulario input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    #rememberMe {
+        margin-right: 0.5rem;
+    }
+    
+}
 
 .login_container {
     width: 400px;
@@ -77,6 +99,16 @@ body {
 .input_wrapper {
     margin-bottom: 1.5rem;
     position: relative;
+}
+
+
+.input_wrapper label {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
 
 .input_field {
@@ -121,6 +153,7 @@ body {
     transform: translateY(-50%);
     font-size: 1.2rem;
     color: var(--color-principal);
+    cursor: pointer;
 }
 
 
@@ -214,14 +247,29 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
+
+    #contenido {
+        flex-direction: column;
+    }
+
+    #fondo-degradado {
+        height: 200px; 
+    }
+
+    .login_container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+   
     .input_field {
         height: 45px;
         font-size: 0.9rem;
     }
 
     .input-submit {
-        padding: 0.5rem;
         font-size: 0.9rem;
     }
 
@@ -231,5 +279,37 @@ body {
 
     .login_title span {
         font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    
+    #contenido {
+        flex-direction: column;
+    }
+
+    #fondo-degradado {
+        display: none; 
+    }
+
+    .login_container {
+        width: 95%; 
+        border: none; 
+        box-shadow: none; 
+    }
+
+    .input_field {
+        font-size: 0.85rem;
+    }
+
+    .input-submit {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-links,
+    .footer-text {
+        font-size: 0.7rem;
     }
 }

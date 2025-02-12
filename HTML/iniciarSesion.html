@@ -12,16 +12,16 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
-    <div id="contenido">
+<body class="fondoDegradado">
+    <div id="contenido" class="mt-3">
         <!-- Parte izquierda con el formulario -->
         <form id="formulario">
             <div class="login_container">
 
-                <!-- Encabezado y aquí falta el logo de MarketMexa -->
+
                 <div class="login_title">
                     <img src="/IMG/LOGO.png" alt="Logo" class="logo-img">
-                    <br/>
+                    <br />
                     <span>Inicio de sesión</span>
                 </div>
 
@@ -31,27 +31,35 @@
 
                 <!-- Datos para el correo electrónico -->
                 <div class="input_wrapper">
-                    <input type="email" id="email" class="input_field" required>
+                    <input type="text" id="email" class="input_field">
                     <label for="email" class="label">Correo electrónico</label>
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
 
                 <!-- Datos para la contraseña -->
                 <div class="input_wrapper">
-                    <input type="password" id="pass" class="input_field" required>
+                    <input type="password" id="pass" class="input_field">
                     <label for="pass" class="label">Contraseña</label>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
 
-               
+                <!-- Casilla de "Recuérdame" -->
+                <div class="input_wrapper">
+                    <label>
+                        <input type="checkbox" id="rememberMe" /> Recuérdame
+                    </label>
+                </div>
+
                 <!-- Botón de registro -->
+
+                
                 <div class="input_wrapper">
                     <button type="submit" class="input-submit btn btn-primary">Envíar</button>
                 </div>
 
                 <!-- Enlace para iniciar sesión -->
                 <div class="signup">
-                    <span>¿No tienes una cuenta? <a href="/HTML/registro.html"><i>Registrate</i></a></span>
+                    <span>¿No tienes una cuenta? <a href="/HTML/registro.html"><i>Regístrate</i></a></span>
                 </div>
                 <div class="footer-links">
                     <a href="./terminos.html">Términos y condiciones</a> |
@@ -59,13 +67,10 @@
                     <a href="./contactanos.html">Contáctanos</a>
                 </div>
                 <div class="footer-text">
-                    Todos los derechos reservados ©2024
+                    Todos los derechos reservados ©2025
                 </div>
             </div>
         </form>
-
-        <!-- Parte derecha con el fondo degradado -->
-        <div id="fondo-degradado"></div>
     </div>
 
     <!-- Pie de página /aqui faltan los enlaces en el href -->
