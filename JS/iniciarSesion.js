@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((result) => {
           console.log(result);
           // Mostrar bienvenida y redirigir
-          showAlert(¡Bienvenido/a!, "success");
+          showAlert("¡Bienvenido/a!", "success");
           localStorage.setItem('logueado', 'true');
           setTimeout(() => {
             window.location.href = "/HTML/listaProductos.html";
